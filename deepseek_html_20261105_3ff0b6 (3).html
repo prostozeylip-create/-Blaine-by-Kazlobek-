@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Государственная памятка Blaine | by Kazlobek Notorious &amp; Notorious FAMQ</title>
+<style>
+  :root{
+    --bg:#0b0e14; --panel:#151924; --panel2:#1c2230; --line:#2b3242;
+    --text:#e6ebf5; --muted:#8b95a8; --accent:#4da3ff; --accent2:#ffcc4d;
+    --cop:#4da3ff; --law:#a78bfa; --cit:#4ade80; --danger:#ff5c5c; --ok:#4ade80;
+    --f:#c9a7ff; --r:#7fd0ff; --fr:#9be79b; --discord:#5865F2;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:'Segoe UI',Roboto,Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.55}
+  header{position:sticky;top:0;z-index:50;background:linear-gradient(180deg,#0f131b 0%,#0f131bee 100%);border-bottom:1px solid var(--line);padding:14px 20px;backdrop-filter:blur(10px)}
+  header h1{margin:0;font-size:19px;letter-spacing:.3px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+  header h1 .by{color:var(--accent2);font-weight:600;font-size:15px;opacity:.95}
+  header .sub{color:var(--muted);font-size:12.5px;margin-top:3px}
+  .wrap{max-width:1200px;margin:0 auto;padding:18px 20px 60px}
+  nav.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:16px 0 10px}
+  nav.tabs button{cursor:pointer;border:1px solid var(--line);background:var(--panel);color:var(--text);padding:9px 15px;border-radius:10px;font-size:13.5px;font-weight:600;transition:.15s;display:flex;align-items:center;gap:6px}
+  nav.tabs button:hover{border-color:var(--accent);transform:translateY(-1px)}
+  nav.tabs button.active{background:var(--accent);color:#08111f;border-color:var(--accent);box-shadow:0 4px 14px -6px var(--accent)}
+  .search{margin:10px 0 6px;position:relative}
+  .search input{width:100%;padding:12px 14px 12px 42px;border-radius:10px;border:1px solid var(--line);background:var(--panel);color:var(--text);font-size:14.5px;outline:none;transition:.15s}
+  .search input:focus{border-color:var(--accent);box-shadow:0 0 0 3px #4da3ff22}
+  .search::before{content:"🔍";position:absolute;left:14px;top:50%;transform:translateY(-50%);opacity:.6;font-size:15px}
+  .search .count{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:12px;color:var(--muted)}
+  section.tab{display:none;animation:fade .2s ease}
+  section.tab.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+  h2{font-size:18px;margin:26px 0 12px;padding-bottom:8px;border-bottom:2px solid var(--line);display:flex;align-items:center;gap:8px}
+  h2::before{content:"";width:4px;height:18px;background:var(--accent);border-radius:2px}
+  #tab-uk h2::before{background:var(--cop)}
+  #tab-koap h2::before{background:var(--accent2)}
+  #tab-dk h2::before{background:var(--cit)}
+  #tab-pk h2::before{background:var(--law)}
+  #tab-more h2::before{background:var(--danger)}
+  table{width:100%;border-collapse:separate;border-spacing:0;margin:8px 0 20px;font-size:13px;background:var(--panel);border-radius:10px;overflow:hidden;border:1px solid var(--line)}
+  th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+  th{background:var(--panel2);color:var(--accent);font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.4px;white-space:nowrap}
+  tr:last-child td{border-bottom:none}
+  tr:hover td{background:#1a2030}
+  td.num{font-family:'Consolas',monospace;color:var(--accent2);font-weight:600;white-space:nowrap}
+  .badge{display:inline-block;padding:2px 8px;border-radius:999px;font-size:11px;font-weight:700;letter-spacing:.3px;white-space:nowrap}
+  .b-f{background:#33254a;color:var(--f)}
+  .b-r{background:#1c3346;color:var(--r)}
+  .b-fr{background:#203524;color:var(--fr)}
+  .b-none{background:#2a2f3a;color:var(--muted)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:12px;margin:12px 0 20px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 16px;transition:.15s}
+  .card:hover{border-color:var(--accent);transform:translateY(-1px)}
+  .card h4{margin:0 0 8px;font-size:13px;color:var(--accent2);text-transform:uppercase;letter-spacing:.5px;display:flex;align-items:center;gap:6px}
+  .card p{margin:0;font-size:13.5px;color:var(--muted);line-height:1.6}
+  .card ul{margin:0;padding-left:18px;font-size:13.5px;color:var(--muted)}
+  .card li{margin:4px 0}
+  .note{background:linear-gradient(90deg,var(--panel2),var(--panel));border-left:4px solid var(--accent);padding:12px 16px;border-radius:8px;margin:14px 0;font-size:13.5px}
+  .note.warn{border-left-color:var(--accent2)}
+  .note.danger{border-left-color:var(--danger)}
+  .note.ok{border-left-color:var(--ok)}
+  .miranda{background:linear-gradient(135deg,#141c2c,#0f1520);border:1px solid var(--accent);border-radius:14px;padding:20px 22px;margin:14px 0;font-style:italic;font-size:14.5px;line-height:1.75;position:relative;overflow:hidden}
+  .miranda::before{content:"⚖️";position:absolute;right:16px;top:14px;font-size:38px;opacity:.15}
+  .miranda b{color:var(--accent);font-style:normal}
+  ul.tight{margin:6px 0 16px;padding-left:20px}
+  ul.tight li{margin:5px 0;font-size:13.5px}
+  .stages{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0 18px}
+  .stage{flex:1;min-width:140px;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px;font-size:12.5px;text-align:center;position:relative}
+  .stage .n{font-size:18px;font-weight:700;color:var(--accent2);display:block;margin-bottom:2px}
+  .stage:not(:last-child)::after{content:"→";position:absolute;right:-12px;top:50%;transform:translateY(-50%);color:var(--muted)}
+  footer{margin-top:30px;padding:18px 0;border-top:1px solid var(--line);color:var(--muted);font-size:12px;text-align:center}
+  mark{background:#4da3ff33;color:var(--accent);padding:0 2px;border-radius:3px}
+  .hidden{display:none!important}
+  
+  .map-container{text-align:center; margin:15px 0 25px;}
+  .map-img{width:100%; max-width:550px; border-radius:12px; border:1px solid var(--line); box-shadow:0 8px 24px rgba(0,0,0,0.4); transition:.2s;}
+  .map-img:hover{transform:scale(1.01); border-color:var(--accent);}
+
+  pre.code-block {
+    background: var(--panel2);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 10px 12px;
+    overflow-x: auto;
+    white-space: pre-wrap;
+    word-break: break-all;
+    font-size: 11.5px;
+    color: var(--muted);
+    margin: 8px 0 0;
+    max-height: 120px;
+    font-family: 'Consolas', monospace;
+  }
+
+  tr.clickable { cursor: context-menu; }
+  .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5, 8, 12, 0.8); z-index: 100; justify-content: center; align-items: center; backdrop-filter: blur(4px); }
+  .modal-overlay.active { display: flex; }
+  .modal-content { background: var(--panel); border: 1px solid var(--accent); border-radius: 12px; padding: 20px 24px; max-width: 600px; width: 90%; max-height: 85vh; overflow-y: auto; box-shadow: 0 10px 30px rgba(0,0,0,0.7); position: relative; animation: modalIn .2s ease; }
+  @keyframes modalIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
+  .modal-close { position: absolute; top: 15px; right: 15px; cursor: pointer; color: var(--muted); font-size: 24px; font-weight: bold; line-height: 1; transition: .15s; }
+  .modal-close:hover { color: var(--danger); }
+  .modal-title { color: var(--accent2); font-size: 18px; font-weight: 700; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px solid var(--line); }
+  .modal-body { font-size: 14px; line-height: 1.6; }
+  .part-item { margin-bottom: 12px; padding: 10px 14px; background: var(--panel2); border-radius: 8px; border-left: 3px solid var(--accent); }
+  .part-title { font-weight: bold; color: var(--accent); display: block; margin-bottom: 4px; font-size: 13.5px; }
+
+  @media(max-width:640px){
+    .wrap{padding:14px}
+    th,td{padding:7px 9px;font-size:12px}
+    .stages .stage::after{display:none}
+    header h1{font-size:16px}
+    header h1 .by{font-size:13px;width:100%;margin-top:4px}
+  }
+  @media print{
+    header,nav.tabs,.search{display:none}
+    section.tab{display:block!important}
+    body{background:#fff;color:#000}
+    table,.card,.note,.miranda{background:#fff;border-color:#ccc}
+    th{background:#eee;color:#000}
+    td{border-color:#ccc}
+    tr:hover td{background:#fff}
+    td.num{color:#b06a00}
+    .badge{border:1px solid #999}
+  }
+</style>
+</head>
+<body>
+<header>
+<h1>📘 Государственная памятка Blaine <span class="by">| by Kazlobek Notorious &amp; Notorious FAMQ</span></h1>
+<div class="sub">ПАМЯТКА BLAINE · срез 21.10.2026 · редакция актов в заголовке: 23.10.2026</div>
+</header>
+<div class="wrap">
+<nav class="tabs" id="tabs">
+<button class="active" data-tab="uk">⚖️ УК</button>
+<button data-tab="koap">📋 КоАП</button>
+<button data-tab="dk">🚗 Дорожный кодекс</button>
+<button data-tab="pk">🛡️ Процессуальный кодекс</button>
+<button data-tab="more">📌 Прочее</button>
+</nav>
+<div class="search">
+<input id="search" placeholder="Поиск: статья, состав, наказание, термин..." type="search"/>
+<span class="count" id="count"></span>
+</div>
+
+<!-- ================= УК ================= -->
+<section class="tab active" id="tab-uk">
+<h2>Уголовный кодекс</h2>
+<div class="note warn" style="margin-top:0; margin-bottom:10px; padding:8px 12px; font-size:12px;">💡 <b>Подсказка:</b> Нажмите на статью, чтобы раскрыть все её части. На компьютере также доступно открытие через ЛКМ.</div>
+<table>
+<tr><th>№</th><th>Юр.</th><th>Состав правонарушения</th><th>Штраф</th><th>Время в ФТ</th></tr>
+
+<tr class="clickable" data-article="3.6"><td class="num">3.6</td><td><span class="badge b-none">—</span></td><td>Соучастие: ответственность определяется участием и ролью</td><td>-</td><td>По ст. 3.6</td></tr>
+<tr class="clickable" data-article="6.1"><td class="num">6.1</td><td><span class="badge b-f">ФД</span></td><td>ч1. Убийство, то есть умышленное причинение смерти другому человеку ((нокаут и добив))</td><td>-</td><td>30-50 мин</td></tr>
+<tr class="clickable" data-article="6.1"><td class="num"></td><td></td><td>ч2. Убийство + отягчающие</td><td>-</td><td>45-60 мин</td></tr>
+<tr class="clickable" data-article="6.2"><td class="num">6.2</td><td><span class="badge b-f">ФД</span></td><td>Причинение смерти по неосторожности ((нокаут и добив))</td><td>-</td><td>20 мин</td></tr>
+<tr class="clickable" data-article="6.3"><td class="num">6.3</td><td><span class="badge b-fr">Р/ФД</span></td><td>Умышленное причинение тяжкого вреда здоровью ((нокаут))</td><td>-</td><td>20-40 мин</td></tr>
+<tr class="clickable" data-article="6.4"><td class="num">6.4</td><td><span class="badge b-fr">Р/ФД</span></td><td>ч1. Умышленное причинение тяжкого вреда здоровью, при превышении обороны ((нокаут))</td><td>50к$</td><td>15 мин</td></tr>
+<tr class="clickable" data-article="6.4"><td class="num"></td><td></td><td>ч2. Умышленное причинение тяжкого или средней тяжести вреда здоровью, при задержании</td><td>55к$</td><td>20 мин</td></tr>
+<tr class="clickable" data-article="6.5"><td class="num">6.5</td><td><span class="badge b-fr">Р/ФД</span></td><td>Причинение тяжкого вреда здоровью по неосторожности ((нокаут))</td><td>45к$</td><td>20 мин</td></tr>
+<tr class="clickable" data-article="6.6"><td class="num">6.6</td><td><span class="badge b-fr">Р/ФД</span></td><td>Умышленное причинение средней тяжести вреда здоровью</td><td>60к$</td><td>30 мин</td></tr>
+<tr class="clickable" data-article="6.7"><td class="num">6.7</td><td><span class="badge b-fr">Р/ФД</span></td><td>Угроза убийством или причинением тяжкого вреда здоровью</td><td>35к$</td><td>10 мин</td></tr>
+<tr class="clickable" data-article="7.1"><td class="num">7.1</td><td><span class="badge b-f">ФД</span></td><td>ч1. Похищение человека</td><td>-</td><td>20-35 мин</td></tr>
+<tr class="clickable" data-article="7.1"><td class="num"></td><td></td><td>ч2. Похищение человека + отягчающие</td><td>-</td><td>40 мин</td></tr>
+<tr class="clickable" data-article="7.1"><td class="num"></td><td></td><td>ч3. Похищение человека + шантаж</td><td>-</td><td>30-45 мин</td></tr>
+<tr class="clickable" data-article="8.1"><td class="num">8.1</td><td><span class="badge b-r">Р</span></td><td>ч1. Изнасилование</td><td>-</td><td>15-30 мин</td></tr>
+<tr class="clickable" data-article="8.1"><td class="num"></td><td></td><td>ч2. Изнасилование + отягчающие</td><td>-</td><td>20-50 мин</td></tr>
+<tr class="clickable" data-article="8.2"><td class="num">8.2</td><td><span class="badge b-r">Р</span></td><td>Понуждение к действиям сексуального характера</td><td>60к$</td><td>15-25 мин</td></tr>
+<tr class="clickable" data-article="10.1"><td class="num">10.1</td><td><span class="badge b-fr">Р/ФН</span></td><td>ч1. Кража, то есть тайное хищение чужого имущества, стоимостью свыше $5.000</td><td>10к$</td><td>15-25 мин</td></tr>
+<tr class="clickable" data-article="10.1"><td class="num"></td><td></td><td>ч2. Кража, совершенное со стоимостью имущества в свыше $10.000</td><td>20к$</td><td>25-35 мин</td></tr>
+<tr class="clickable" data-article="10.1"><td class="num"></td><td></td><td>ч3. Кража, совершенное со стоимостью имущества в свыше $20.000</td><td>50к$</td><td>30-50 мин</td></tr>
+<tr class="clickable" data-article="10.2"><td class="num">10.2</td><td><span class="badge b-fr">Р/ФН</span></td><td>Мошенничество</td><td>20к$</td><td>25-40 мин</td></tr>
+<tr class="clickable" data-article="10.3"><td class="num">10.3</td><td><span class="badge b-fr">Р/ФН</span></td><td>Вымогательство</td><td>-</td><td>30-40 мин</td></tr>
+<tr class="clickable" data-article="10.4"><td class="num">10.4</td><td><span class="badge b-r">Р</span></td><td>Грабеж, то есть открытое хищение чужого имущества</td><td>-</td><td>15-30 мин</td></tr>
+<tr class="clickable" data-article="10.5"><td class="num">10.5</td><td><span class="badge b-r">Р</span></td><td>Неправомерное завладение ТС с целью хищения (угон)</td><td>-</td><td>15-20 мин</td></tr>
+<tr class="clickable" data-article="10.6"><td class="num">10.6</td><td><span class="badge b-fr">Р/ФД</span></td><td>Разбой</td><td>-</td><td>30-40 мин</td></tr>
+<tr class="clickable" data-article="10.7"><td class="num">10.7</td><td><span class="badge b-r">Р</span></td><td>ч1. Умышленные уничтожение или повреждение чужого имущества</td><td>40к$</td><td>15-30 мин</td></tr>
+<tr class="clickable" data-article="10.7"><td class="num"></td><td></td><td>ч2. Уничтожение или повреждение имущества по неосторожности</td><td>30к$</td><td>15 мин</td></tr>
+<tr class="clickable" data-article="10.7"><td class="num"></td><td></td><td>ч3. Деяния частей 1 и 2 совершенные из хулиганских побуждений</td><td>-</td><td>30-60 мин</td></tr>
+<tr class="clickable" data-article="10.8"><td class="num">10.8</td><td><span class="badge b-f">ФД</span></td><td>ч1. Умышленные уничтожение или повреждение государственного имущества</td><td>-</td><td>30 мин</td></tr>
+<tr class="clickable" data-article="10.8"><td class="num"></td><td></td><td>ч2. Уничтожение или повреждение государственного имущества по неосторожности</td><td>50к$</td><td>15-20 мин</td></tr>
+<tr class="clickable" data-article="10.8"><td class="num"></td><td></td><td>ч3. Деяния частей 1 и 2 совершенные из хулиганских побуждений</td><td>-</td><td>30-40 мин</td></tr>
+<tr class="clickable" data-article="11.1"><td class="num">11.1</td><td><span class="badge b-f">ФН</span></td><td>ч1. Предпринимательство без регистрации в виде аренды, превышение 10 лотов или 150к$</td><td>30к-50к$</td><td>20 мин</td></tr>
+<tr class="clickable" data-article="11.1"><td class="num"></td><td></td><td>ч2. Предпринимательство без регистрации в виде торговли, превышает 2.000 единиц или 100к$</td><td>30к-50к$</td><td>30 мин</td></tr>
+<tr class="clickable" data-article="11.1"><td class="num"></td><td></td><td>ч3. Продажа лекарственных препаратов без разрешения</td><td>15к-40к$</td><td>30 мин</td></tr>
+<tr class="clickable" data-article="11.2"><td class="num">11.2</td><td><span class="badge b-f">ФН</span></td><td>Принуждение к совершению сделки или к отказу от ее совершения</td><td>-</td><td>30 мин</td></tr>
+<tr class="clickable" data-article="11.3"><td class="num">11.3</td><td><span class="badge b-f">ФН</span></td><td>Уклонение от уплаты налогов</td><td>долгX2</td><td>30 мин</td></tr>
+<tr class="clickable" data-article="11.4"><td class="num">11.4</td><td><span class="badge b-f">ФН</span></td><td>Сокрытие денежных средств/имущества</td><td>сокрытиеX2</td><td>30 мин</td></tr>
+<tr class="clickable" data-article="11.6"><td class="num">11.6</td><td><span class="badge b-f">ФН</span></td><td>Финансовые махинации с государственным финансированием</td><td>-</td><td>40 мин</td></tr>
+<tr class="clickable" data-article="11.7"><td class="num">11.7</td><td><span class="badge b-f">ФН</span></td><td>Финансирование экстремистской деятельности</td><td>-</td><td>45-60 мин</td></tr>
+<tr class="clickable" data-article="11.8"><td class="num">11.8</td><td><span class="badge b-f">ФН</span></td><td>Контрабанда</td><td>25к$</td><td>30 мин</td></tr>
+<tr class="clickable" data-article="12.1"><td class="num">12.1</td><td><span class="badge b-f">ФД</span></td><td>Терроризм</td><td>-</td><td>60 мин</td></tr>
+<tr class="clickable" data-article="12.2"><td class="num">12.2</td><td><span class="badge b-f">ФД</span></td><td>Публичные призывы к осуществлению террористической деятельности</td><td>-</td><td>30 мин</td></tr>
+<tr class="clickable" data-article="12.3"><td class="num">12.3</td><td><span class="badge b-f">ФД</span></td><td>Склонение, вербовка или иное вовлечение лица в совершение террористического акта</td><td>-</td><td>45 мин</td></tr>
+<tr class="clickable" data-article="12.4"><td class="num">12.4</td><td><span class="badge b-f">ФД</span></td><td>Несообщение о преступлении</td><td>-</td><td>20 мин</td></tr>
+<tr class="clickable" data-article="12.5"><td class="num">12.5</td><td><span class="badge b-f">ФД</span></td><td>Заведомо ложное сообщение об акте терроризма</td><td>-</td><td>20 мин</td></tr>
+<tr class="clickable" data-article="12.6"><td class="num">12.6</td><td><span class="badge b-fr">Р/ФД</span></td><td>Незаконное посещение/пребывание на особо охраняемых объектах ГОС органов</td><td>10к-25к$</td><td>15-20 мин</td></tr>
+<tr class="clickable" data-article="12.7"><td class="num">12.7</td><td><span class="badge b-fr">Р/ФД</span></td><td>Незаконное проникновение на особо охраняемый объект+незаконное нахождение на нем</td><td>20к-30к$</td><td>30 мин</td></tr>
+<tr class="clickable" data-article="12.8"><td class="num">12.8</td><td><span class="badge b-fr">Р/ФД</span></td><td>ч1. Незаконное приобретение, передача, сбыт, перевозка в ТС оружия, спец.средств и бпрп.,</td><td>10к-25к$</td><td>15-25 мин</td></tr>
+<tr class="clickable" data-article="12.8"><td class="num"></td><td></td><td>ч2. Незаконное хранение, ношение или использование оружия, спец.средств и боеприпасов</td><td>20к-40к$</td><td>30 мин</td></tr>
+<tr class="clickable" data-article="12.8 ч.1"><td class="num">12.8 ч.1</td><td><span class="badge b-fr">Ф/Р</span></td><td>Незаконный оборот оружия — приобретение/перевозка</td><td>3–5 лет / $10–25 тыс.</td><td>-</td></tr>
+<tr class="clickable" data-article="12.8 ч.2"><td class="num">12.8 ч.2</td><td><span class="badge b-fr">Ф/Р</span></td><td>Незаконный оборот оружия — хранение/ношение/использование</td><td>6 лет / $20–40 тыс.</td><td>-</td></tr>
+<tr class="clickable" data-article="12.8.1"><td class="num">12.8.1</td><td><span class="badge b-f">ФД</span></td><td>Использование, хранение гражданскими лицами спец. средств государственного образца</td><td>50к$</td><td>40 мин</td></tr>
+<tr class="clickable" data-article="12.10"><td class="num">12.10</td><td><span class="badge b-f">ФД</span></td><td>ч1. Организация деятельности общественного или религиозного объединения</td><td>-</td><td>30-40 мин</td></tr>
+<tr class="clickable" data-article="12.10"><td class="num"></td><td></td><td>ч2. Склонение, вербовка или иное вовлечение лица в деятельность экстремистской орг</td><td>-</td><td>40 мин</td></tr>
+<tr class="clickable" data-article="12.10"><td class="num"></td><td></td><td>ч3. Участие в деятельности общественного или религиозного объединения</td><td>-</td><td>30 мин</td></tr>
+<tr class="clickable" data-article="12.10"><td class="num"></td><td></td><td>ч4. Деяния частей 1 2 и 3 совершенные лицом с использованием своего служебного положения</td><td>-</td><td>60 мин</td></tr>
+<tr class="clickable" data-article="12.11"><td class="num">12.11</td><td><span class="badge b-fr">Р/ФД</span></td><td>ч1. Нарушение установленного порядка организации либо проведения собрания, митинга</td><td>-</td><td>20 мин</td></tr>
+<tr class="clickable" data-article="12.11"><td class="num"></td><td></td><td>ч2. Организация либо активное участие в собрании, митинге или публичном мероприятии</td><td>-</td><td>20 мин</td></tr>
+<tr class="clickable" data-article="12.12"><td class="num">12.12</td><td><span class="badge b-fr">Р/ФД</span></td><td>Массовые беспорядки</td><td>-</td><td>15-60 мин</td></tr>
+<tr class="clickable" data-article="12.13"><td class="num">12.13</td><td><span class="badge b-f">ФД</span></td><td>ч1. Действия, направленные на возбуждение ненависти либо вражды (экстремизм)</td><td>-</td><td>30-40 мин</td></tr>
+<tr class="clickable" data-article="12.13"><td class="num"></td><td></td><td>ч2. Экстремизм + отягчающие</td><td>-</td><td>45-60 мин</td></tr>
+<tr class="clickable" data-article="12.14"><td class="num">12.14</td><td><span class="badge b-f">ФД</span></td><td>Взрывчатые вещества/устройства: незаконные приобретение, передача, сбыт, хранение, и т.д.,</td><td>-</td><td>35-40 мин</td></tr>
+<tr class="clickable" data-article="12.15"><td class="num">12.15</td><td><span class="badge b-f">ФД</span></td><td>Хищение огнестрельного оружия</td><td>-</td><td>30-40 мин</td></tr>
+<tr class="clickable" data-article="12.16"><td class="num">12.16</td><td><span class="badge b-f">ФД</span></td><td>Хищение государственного имущества, совершенное сотрудниками ГОС</td><td>-</td><td>60 мин</td></tr>
+<tr class="clickable" data-article="12.17"><td class="num">12.17</td><td><span class="badge b-f">ФД</span></td><td>Создание вооруженного формирования</td><td>-</td><td>50-60 мин</td></tr>
+<tr class="clickable" data-article="12.18"><td class="num">12.18</td><td><span class="badge b-f">ФД</span></td><td>ч1. Создание преступного сообщества в целях совершения преступления</td><td>-</td><td>50-60 мин</td></tr>
+<tr class="clickable" data-article="12.18"><td class="num"></td><td></td><td>ч2. Участие в собрании организаторов, руководителей (лидеров)/иных преступных сообществ</td><td></td><td></td></tr>
+<tr class="clickable" data-article="12.18"><td class="num"></td><td></td><td>ч3. Участие в преступном сообществе (преступной организации)</td><td></td><td></td></tr>
+<tr class="clickable" data-article="12.18"><td class="num"></td><td></td><td>ч4. Части 1 2 и 3 совершенные лицом с использованием своего служебного положения</td><td></td><td></td></tr>
+<tr class="clickable" data-article="12.18"><td class="num"></td><td></td><td>ч5. Части 1 и 2 совершенные лицом, занимающим высшее положение в преступной иерархии</td><td></td><td></td></tr>
+<tr class="clickable" data-article="13.1"><td class="num">13.1</td><td><span class="badge b-fr">Р/ФД</span></td><td>Наркотики - свыше 5 грамм легких ((косяк)), до 10 грамм тяжелых ((spank))</td><td>-</td><td>15 мин</td></tr>
+<tr class="clickable" data-article="13.1+"><td class="num">13.1+</td><td><span class="badge b-fr">Ф/Р</span></td><td>Наркотики: квалификация по ст. 13.1–13.3, виду, количеству и цели</td><td>3–10 лет; см. указатель</td><td>-</td></tr>
+<tr class="clickable" data-article="13.2"><td class="num">13.2</td><td><span class="badge b-f">ФД</span></td><td>Наркотики - от 10 грамм и выше</td><td>-</td><td>25-40 мин</td></tr>
+<tr class="clickable" data-article="13.3"><td class="num">13.3</td><td><span class="badge b-f">ФД</span></td><td>Наркотики - 25 грамм и выше</td><td>-</td><td>50 мин</td></tr>
+<tr class="clickable" data-article="13.4"><td class="num">13.4</td><td><span class="badge b-r">Р</span></td><td>Организация, а равно вовлечение в занятие проституцией ((сутенерка))</td><td>-</td><td>15-30 мин</td></tr>
+<tr class="clickable" data-article="13.5"><td class="num">13.5</td><td><span class="badge b-fr">Р/ФД</span></td><td>ч1. Жестокое обращение с животным в целях причинения ему боли и (или) страданий</td><td>25к-45к$</td><td>20 мин</td></tr>
+<tr class="clickable" data-article="13.5"><td class="num"></td><td></td><td>ч2. Жестокое обращение с животным + отягчающие</td><td>50к$</td><td>30 мин</td></tr>
+<tr class="clickable" data-article="14.1"><td class="num">14.1</td><td><span class="badge b-f">ФД</span></td><td>Насильственный захват власти или насильственное удержание власти</td><td>-</td><td>60 мин</td></tr>
+<tr class="clickable" data-article="14.2"><td class="num">14.2</td><td><span class="badge b-f">ФД</span></td><td>Сепаратизм</td><td>-</td><td>50-60 мин</td></tr>
+<tr class="clickable" data-article="14.3"><td class="num">14.3</td><td><span class="badge b-f">ФД</span></td><td>Разглашение государственной тайны</td><td>-</td><td>45 мин</td></tr>
+<tr class="clickable" data-article="14.4"><td class="num">14.4</td><td><span class="badge b-f">ФД</span></td><td>Незаконное получение сведений, составляющих государственную тайну</td><td>-</td><td>45-50 мин</td></tr>
+<tr class="clickable" data-article="15.1"><td class="num">15.1</td><td><span class="badge b-f">ФД</span></td><td>ч1. Превышение должностных полномочий</td><td>30к-45к$</td><td>20-30 мин</td></tr>
+<tr class="clickable" data-article="15.1"><td class="num"></td><td></td><td>ч2. Превышение должностных полномочий + отягчающие</td><td>-</td><td>30-40 мин</td></tr>
+<tr class="clickable" data-article="15.1.1"><td class="num">15.1.1</td><td><span class="badge b-f">ФД</span></td><td>ч1. Злоупотребление должностными полномочиями</td><td>40к-50к$</td><td>30 мин</td></tr>
+<tr class="clickable" data-article="15.1.1"><td class="num"></td><td></td><td>ч2. Должностные для вмешательства или воспрепятствования процессу задержания/аресту</td><td>60к$</td><td>30 мин</td></tr>
+<tr class="clickable" data-article="15.1.1"><td class="num"></td><td></td><td>ч3. Части 1 и 2 если они совершены ГОС уполномоченным расследовать ГОС преступления</td><td>-</td><td>40 мин</td></tr>
+<tr class="clickable" data-article="15.1.1"><td class="num"></td><td></td><td>ч4. Части 1 2 и 3 повлекшее причинение вреда здоровью или смерть человека</td><td>-</td><td>40-60 мин</td></tr>
+<tr class="clickable" data-article="15.2"><td class="num">15.2</td><td><span class="badge b-f">ФД</span></td><td>Присвоение полномочий должностного лица</td><td>-</td><td>30-40 мин</td></tr>
+<tr class="clickable" data-article="15.3"><td class="num">15.3</td><td><span class="badge b-f">ФД</span></td><td>ч1. Неисполнение сотрудником ГОС указа, приказа, распоряжения или иного НПА от рук-ва</td><td>15к-30к$</td><td>30 мин</td></tr>
+<tr class="clickable" data-article="15.3"><td class="num"></td><td></td><td>ч2. Неисполнение сотрудником ГОС указа, приказа, распоряжения или иного НПА от Глав ДП</td><td>15к-30к$</td><td>40 мин</td></tr>
+<tr class="clickable" data-article="15.3"><td class="num"></td><td></td><td>ч3. Неисполнение сотрудником ГОС указа, приказа, распоряжения или иного НПА от Губера</td><td>-</td><td>50-60 мин</td></tr>
+<tr class="clickable" data-article="15.3"><td class="num"></td><td></td><td>ч4. Неисполнение сотрудником ГОС указа, приказа, распоряжения или иного НПА от Сената</td><td>-</td><td>50-60 мин</td></tr>
+<tr class="clickable" data-article="15.4"><td class="num">15.4</td><td><span class="badge b-f">ФД</span></td><td>Получение должностным лицом взятки</td><td>взяткаХ5</td><td>40-50 мин</td></tr>
+<tr class="clickable" data-article="15.5"><td class="num">15.5</td><td><span class="badge b-f">ФД</span></td><td>Дача взятки должностному лицу лично или через посредника</td><td>взяткаХ5</td><td>25-40 мин</td></tr>
+<tr class="clickable" data-article="15.5.1"><td class="num">15.5.1</td><td><span class="badge b-f">ФД</span></td><td>Посредничество во взяточничестве</td><td>взяткаХ5</td><td>25-40 мин</td></tr>
+<tr class="clickable" data-article="15.5.2"><td class="num">15.5.2</td><td><span class="badge b-f">ФД</span></td><td>Мелкое взятничество</td><td>50к$</td><td>15-30 мин</td></tr>
+<tr class="clickable" data-article="15.6"><td class="num">15.6</td><td><span class="badge b-fr">Р/ФД</span></td><td>ч1. Халатность</td><td>35к-50к$</td><td>15-25 мин</td></tr>
+<tr class="clickable" data-article="15.6"><td class="num"></td><td></td><td>ч2. Халатность повлекшее причинение тяжкого вреда или смерть человека по неосторожности</td><td>-</td><td>25-30 мин</td></tr>
+<tr class="clickable" data-article="15.6"><td class="num"></td><td></td><td>ч3. Халатность повлекшее по неосторожности смерть двух или более лиц</td><td>-</td><td>45 мин</td></tr>
+<tr class="clickable" data-article="15.7"><td class="num">15.7</td><td><span class="badge b-fr">Р/ФД</span></td><td>Деструктивное поведение</td><td>20к-40к$</td><td>15 мин</td></tr>
+<tr class="clickable" data-article="16.1"><td class="num">16.1</td><td><span class="badge b-f">ФД</span></td><td>ч1. Вмешательство в какой бы то ни было форме в деятельность суда</td><td>-</td><td>40 мин</td></tr>
+<tr class="clickable" data-article="16.1"><td class="num"></td><td></td><td>ч2. Вмешательство в деятельность прокурора, или лица, производящего следствие</td><td>-</td><td>50 мин</td></tr>
+<tr class="clickable" data-article="16.1"><td class="num"></td><td></td><td>ч3. Части 1 и 2 совершенные лицом с использованием своего служебного положения</td><td>-</td><td>60 мин</td></tr>
+<tr class="clickable" data-article="16.1"><td class="num"></td><td></td><td>ч4. Неуважение к суду</td><td>50к$</td><td>20-30 мин</td></tr>
+<tr class="clickable" data-article="16.2"><td class="num">16.2</td><td><span class="badge b-f">ФД</span></td><td>Угроза, а равно посягательство на жизнь судьи</td><td>-</td><td>60 мин</td></tr>
+<tr class="clickable" data-article="16.3"><td class="num">16.3</td><td><span class="badge b-f">ФД</span></td><td>Привлечение заведомо невиновного к уголовной или административной ответственности</td><td>-</td><td>40 мин</td></tr>
+<tr class="clickable" data-article="16.4"><td class="num">16.4</td><td><span class="badge b-f">ФД</span></td><td>Заведомо незаконное задержание, заключение под стражу или содержание под стражей</td><td>-</td><td>15-25 мин</td></tr>
+<tr class="clickable" data-article="16.5"><td class="num">16.5</td><td><span class="badge b-f">ФД</span></td><td>Фальсификация доказательств по гражданскому, административному делу</td><td>-</td><td>25 мин</td></tr>
+<tr class="clickable" data-article="16.5-16.10"><td class="num">16.5-16.10</td><td><span class="badge b-f">Ф</span></td><td>Фальсификация доказательств, подкуп свидетелей, неисполнение приговора и др.</td><td>До 5 лет</td><td>-</td></tr>
+<tr class="clickable" data-article="16.6"><td class="num">16.6</td><td><span class="badge b-f">ФД</span></td><td>Фальсификация доказательств по уголовному делу</td><td>-</td><td>40 мин</td></tr>
+<tr class="clickable" data-article="16.7"><td class="num">16.7</td><td><span class="badge b-f">ФД</span></td><td>Вынесение судьей (судьями) заведомо неправомерного приговора, решения или/суд., акта</td><td>-</td><td>40 мин</td></tr>
+<tr class="clickable" data-article="16.8"><td class="num">16.8</td><td><span class="badge b-f">ФД</span></td><td>Заведомо ложные показания в суде</td><td>-</td><td>30 мин</td></tr>
+<tr class="clickable" data-article="16.9"><td class="num">16.9</td><td><span class="badge b-f">ФД</span></td><td>Подкуп свидетеля, потерпевшего в целях дачи ими ложных показаний</td><td>-</td><td>30 мин</td></tr>
+<tr class="clickable" data-article="16.10"><td class="num">16.10</td><td><span class="badge b-f">ФД</span></td><td>ч1. Неисполнение вступивших в законную силу приговора суда, решения суда/иного суд., акта</td><td>-</td><td>30-40 мин</td></tr>
+<tr class="clickable" data-article="16.10"><td class="num"></td><td></td><td>ч2. Неисполнение ГОС вступивших в законную силу приговора суда/акта прокуратуры и т.д.</td><td>50к$</td><td>45-50 мин</td></tr>
+<tr class="clickable" data-article="16.10"><td class="num"></td><td></td><td>ч3. Неуплата уголовного, административного или судебного штрафа</td><td>-</td><td>25 мин</td></tr>
+<tr class="clickable" data-article="16.11"><td class="num">16.11</td><td><span class="badge b-f">ФД</span></td><td>Сокрытие улик или уничтожение улик</td><td>-</td><td>30 мин</td></tr>
+<tr class="clickable" data-article="16.12"><td class="num">16.12</td><td><span class="badge b-f">ФД</span></td><td>Уклонение от расследования, задержания и суда</td><td>-</td><td>40 мин</td></tr>
+<tr class="clickable" data-article="16.13"><td class="num">16.13</td><td><span class="badge b-fr">Р/ФД</span></td><td>Дача заведомо ложных показаний и сведений адвокату или же прокурору в ходе допроса/дела</td><td>-</td><td>30-40 мин</td></tr>
+<tr class="clickable" data-article="16.14"><td class="num">16.14</td><td><span class="badge b-fr">Р/ФД</span></td><td>Дача заведомо ложных показаний должностному лицу в ходе проведения допроса</td><td>-</td><td>30-40 мин</td></tr>
+<tr class="clickable" data-article="16.15"><td class="num">16.15</td><td><span class="badge b-fr">Р/ФД</span></td><td>Отказ свидетеля или потерпевшего от дачи показаний</td><td>-</td><td>20 мин</td></tr>
+<tr class="clickable" data-article="16.16"><td class="num">16.16</td><td><span class="badge b-f">ФД</span></td><td>ч1. Побег из места лишения свободы, из-под ареста или из-под стражи</td><td>-</td><td>30-40 мин</td></tr>
+<tr class="clickable" data-article="16.16"><td class="num"></td><td></td><td>ч2. Побег + отягчающие</td><td>-</td><td>50-60 мин</td></tr>
+<tr class="clickable" data-article="16.16 ч.1"><td class="num">16.16 ч.1</td><td><span class="badge b-fr">Ф/Р</span></td><td>Побег из-под стражи (ч. 1)</td><td>6–8 лет</td><td>-</td></tr>
+<tr class="clickable" data-article="16.16 ч.2"><td class="num">16.16 ч.2</td><td><span class="badge b-fr">Ф/Р</span></td><td>Побег из-под стражи (ч. 2)</td><td>10–12 лет</td><td>-</td></tr>
+<tr class="clickable" data-article="17.1"><td class="num">17.1</td><td><span class="badge b-fr">Р/ФД</span></td><td>Посягательство на жизнь ГОСНИКА</td><td>-</td><td>40-60 мин</td></tr>
+<tr class="clickable" data-article="17.2"><td class="num">17.2</td><td><span class="badge b-fr">Р/ФД</span></td><td>ч1. Применение насилия, не опасного для жизни или здоровья в отношении ГОСНИКА</td><td>50к$</td><td>30 мин</td></tr>
+<tr class="clickable" data-article="17.2"><td class="num"></td><td></td><td>ч2. Применение насилия, опасного для жизни или здоровья, в отношении ГОСНИКОВ</td><td>-</td><td>30-40 мин</td></tr>
+<tr class="clickable" data-article="17.2 ч.1"><td class="num">17.2 ч.1</td><td><span class="badge b-fr">Ф/Р</span></td><td>Угроза либо неопасное насилие в отношении сотрудника правоохранительных органов и иных лиц по УК 17.2 ч. 1</td><td>6 лет или $50 тыс.</td><td>-</td></tr>
+<tr class="clickable" data-article="17.2 ч.2"><td class="num">17.2 ч.2</td><td><span class="badge b-fr">Ф/Р</span></td><td>Опасное для жизни или здоровья насилие в отношении лиц, указанных в УК 17.2 ч. 1</td><td>6–8 лет</td><td>-</td></tr>
+<tr class="clickable" data-article="17.3"><td class="num">17.3</td><td><span class="badge b-f">ФД</span></td><td>Подделка удостоверения или иного официального документа</td><td>-</td><td>30 мин</td></tr>
+<tr class="clickable" data-article="17.4"><td class="num">17.4</td><td><span class="badge b-fr">Р/ФД</span></td><td>Совершение трех административных нарушений КоАП</td><td>35к-50к$</td><td>20 мин</td></tr>
+<tr class="clickable" data-article="17.5"><td class="num">17.5</td><td><span class="badge b-fr">Р/ФД</span></td><td>Самоуправство</td><td>20к-50к$</td><td>30 мин</td></tr>
+<tr class="clickable" data-article="17.6"><td class="num">17.6</td><td><span class="badge b-fr">Р/ФД</span></td><td>Укрывательство правонарушителя</td><td>-</td><td>20 мин</td></tr>
+<tr class="clickable" data-article="17.7"><td class="num">17.7</td><td><span class="badge b-fr">Р/ФД</span></td><td>Отказ от уплаты уголовного штрафа</td><td>-</td><td>30-40 мин</td></tr>
+<tr class="clickable" data-article="18.1"><td class="num">18.1</td><td><span class="badge b-none">В</span></td><td>Неисполнение подчиненным приказа начальника</td><td>15к-25к$</td><td>20 мин</td></tr>
+<tr class="clickable" data-article="18.2"><td class="num">18.2</td><td><span class="badge b-none">В</span></td><td>Самовольное оставление части или места службы</td><td>10к-25к$</td><td>20 мин</td></tr>
+<tr class="clickable" data-article="18.3"><td class="num">18.3</td><td><span class="badge b-none">В</span></td><td>Дезертирство</td><td>35к$</td><td>30 мин</td></tr>
+<tr class="clickable" data-article="18.4"><td class="num">18.4</td><td><span class="badge b-none">В</span></td><td>Нарушение правил несения боевого дежурства (боевой службы)</td><td>50к$</td><td>40 мин</td></tr>
+<tr class="clickable" data-article="18.5"><td class="num">18.5</td><td><span class="badge b-none">В</span></td><td>Умышленные уничтожение/повреждение оружия, боеприпасов или предметов военной техники</td><td>-</td><td>40 мин</td></tr>
+<tr class="clickable" data-article="18.6"><td class="num">18.6</td><td><span class="badge b-none">В</span></td><td>Уничтожение/повреждение по неосторожности оружия и т.п., повлекшие тяжкие последствия</td><td>30к-50к$</td><td>30 мин</td></tr>
+<tr class="clickable" data-article="18.7"><td class="num">18.7</td><td><span class="badge b-none">В</span></td><td>Нарушение правил вождения или эксплуатации боевой или транспортной машины</td><td>-</td><td>30-40 мин</td></tr>
+<tr class="clickable" data-article="19.1"><td class="num">19.1</td><td><span class="badge b-f">ФД</span></td><td>Эксплуатации воздушного ТС повлекшее за собой причинение тяжких телесных повреждений</td><td>-</td><td>20 мин</td></tr>
+<tr class="clickable" data-article="19.2"><td class="num">19.2</td><td><span class="badge b-f">ФД</span></td><td>Эксплуатации воздушного ТС повлекшее за собой по неосторожности смерть человека</td><td>-</td><td>40 мин</td></tr>
+<tr class="clickable" data-article="19.3"><td class="num">19.3</td><td><span class="badge b-f">ФД</span></td><td>Эксплуатации воздушного ТС повлекшее смерть двух и более лиц</td><td>-</td><td>45-60 мин</td></tr>
+<tr class="clickable" data-article="19.4"><td class="num">19.4</td><td><span class="badge b-f">ФД</span></td><td>Угон воздушного транспорта, в том числе завладение им без разрешения руководства</td><td>30к-40к$</td><td>40 мин</td></tr>
+</table>
+<h2>Запрещённые виды оружия, боеприпасов и брони</h2>
+<div class="grid">
+<div class="card"><h4>🔫 Служебное оружие</h4><p>Маркировка <b>MAY / LSPD / LSSD / ARMY / PRIS / FIB</b> — специальные условия для силовых госслужащих.</p></div>
+<div class="card"><h4>🔢 Нечитаемые номера</h4><p>Исключение для коллекционера; на службе — отдельные ограничения.</p></div>
+<div class="card"><h4>🛡️ Спецсредства</h4><p>По закону об оружии; гражданские исключения ограничены.<br/>Разрешено: <b>броня, тайзер, дубинка, наручники, газ</b>.</p></div>
+<div class="card"><h4>🧨 Гранатомёт, ракетница</h4><p>Спецсредства, доступные только уполномоченным структурам.</p></div>
+<div class="card"><h4>🔩 Боеприпасы 7,62 / 11,43 / .50 BMG</h4><p>Только силовики либо коллекционеры.</p></div>
+<div class="card"><h4>🎖️ NG</h4><p>Исключения по лицензии на служебное оружие и указанные боеприпасы.</p></div>
+</div>
+<h2>Запреты к государственной службе (УК 5.17)</h2>
+<div class="note warn">
+      Средняя тяжесть — <b>7 дней</b>; тяжкое преступление — <b>21 день</b>; особо тяжкое — <b>пожизненно</b>.<br/>
+      Категория определяется по УК 2.2. За небольшую тяжесть такой запрет не наступает.<br/>
+      Уголовный штраф сам по себе не создаёт судимости. Отдельные судебные запреты — по решению суда.
+    </div>
+</section>
+
+<!-- ================= КоАП ================= -->
+<section class="tab" id="tab-koap">
+<h2>Кодекс об административных правонарушениях</h2>
+<div class="note warn" style="margin-top:0; margin-bottom:10px; padding:8px 12px; font-size:12px;">
+      💡 <b>Подсказка:</b> Нажмите <b>ЛКМ</b> на статью для просмотра частей.
+    </div>
+<table>
+<tr><th>№</th><th>Состав правонарушения</th><th>Штраф</th><th>Время в КПЗ</th></tr>
+<tr class="clickable" data-article="21"><td class="num">21</td><td>ч1. Мелкое хулиганство</td><td>3к-10к$</td><td>15 мин</td></tr>
+<tr class="clickable" data-article="21"><td class="num"></td><td>ч2. Повторное совершение мелкого хулиганства</td><td>10к-20к$</td><td>30 мин</td></tr>
+<tr class="clickable" data-article="21 ч.1"><td class="num">21 ч.1</td><td>Нарушение общественного порядка</td><td>$3–10 тыс. / 15 суток</td><td>-</td></tr>
+<tr class="clickable" data-article="22"><td class="num">22</td><td>Распитие в общественных местах алкогольных напитков</td><td>2к-10к$</td><td>15 мин</td></tr>
+<tr class="clickable" data-article="23"><td class="num">23</td><td>ч1. Нахождение в общественном месте в неприемлемом виде</td><td>5к-12к$</td><td>10 мин</td></tr>
+<tr class="clickable" data-article="23"><td class="num"></td><td>ч2. Нахождение в общественном месте в маске/мото шлеме</td><td>10к-20к$</td><td>25 мин</td></tr>
+<tr class="clickable" data-article="23 ч.1"><td class="num">23 ч.1</td><td>Оголение в общественном месте</td><td>Предупр. / $5–12 тыс. / 10 суток</td><td>-</td></tr>
+<tr class="clickable" data-article="23 ч.2"><td class="num">23 ч.2</td><td>Неповиновение требованию снять предмет, препятствующий установлению личности</td><td>До 25 суток / $10–20 тыс.</td><td>-</td></tr>
+<tr class="clickable" data-article="24"><td class="num">24</td><td>Обнажение оружия в общественных местах</td><td>5к-15к$</td><td>20 мин</td></tr>
+<tr class="clickable" data-article="25"><td class="num">25</td><td>Незаконное проникновение на охраняемый объект</td><td>5к-20к$</td><td>30 мин</td></tr>
+<tr class="clickable" data-article="26"><td class="num">26</td><td>ч1. Нарушение установленного регламента посещения охраняемого объекта</td><td>5к-15к$</td><td>-</td></tr>
+<tr class="clickable" data-article="26"><td class="num"></td><td>ч2. Повторное нарушение части 1 ст., 26</td><td>-</td><td>15-25 мин</td></tr>
+<tr class="clickable" data-article="27"><td class="num">27</td><td>ч1. Нарушение неприкосновенности жилища и частных владений</td><td>20к-35к$</td><td>30-40 мин</td></tr>
+<tr class="clickable" data-article="27"><td class="num"></td><td>ч2. Незаконное проникновение на частную территорию</td><td>10к-25к$</td><td>10-25 мин</td></tr>
+<tr class="clickable" data-article="27 ч.1"><td class="num">27 ч.1</td><td>Доступ в жилище против воли владельца</td><td>$20–35 тыс. / 30–40 суток</td><td>-</td></tr>
+<tr class="clickable" data-article="28"><td class="num">28</td><td>Безрассудное вождение повлекшее за собой причинение вреда здоровью</td><td>20к$</td><td>40 мин</td></tr>
+<tr class="clickable" data-article="29"><td class="num">29</td><td>Дискриминация</td><td>10к-25к$</td><td>-</td></tr>
+<tr class="clickable" data-article="30"><td class="num">30</td><td>Нарушение государственных нормативных требований охраны труда</td><td>20к-150к$</td><td>-</td></tr>
+<tr class="clickable" data-article="31"><td class="num">31</td><td>Курение в общественных местах</td><td>5к-15к$</td><td>-</td></tr>
+<tr class="clickable" data-article="32"><td class="num">32</td><td>Порча чужого имущества</td><td>5к-15к$</td><td>40 мин</td></tr>
+<tr class="clickable" data-article="33"><td class="num">33</td><td>Воспрепятствование оказанию медицинской помощи</td><td>-</td><td>20-35 мин</td></tr>
+<tr class="clickable" data-article="34"><td class="num">34</td><td>Неоказание медицинской помощи</td><td>40к$</td><td>20-35 мин</td></tr>
+<tr class="clickable" data-article="35"><td class="num">35</td><td>Нарушение работодателем права работника на обеденный перерыв или отпуск</td><td>25к-75к$</td><td>-</td></tr>
+<tr class="clickable" data-article="36"><td class="num">36</td><td>Угон транспортного средства без цели хищения</td><td>15к-30к$</td><td>20-35 мин</td></tr>
+<tr class="clickable" data-article="37"><td class="num">37</td><td>Нарушение неприкосновенности частной жизни</td><td>20к-45к$</td><td>25-40 мин</td></tr>
+<tr class="clickable" data-article="38"><td class="num">38</td><td>Воспрепятствование законной профессиональной деятельности журналиста</td><td>25к-50к$</td><td>30-40 мин</td></tr>
+<tr class="clickable" data-article="38-40"><td class="num">38-40</td><td>Валютные и налоговые нарушения</td><td>$20–50 тыс.</td><td>до 40 суток</td></tr>
+<tr class="clickable" data-article="39"><td class="num">39</td><td>Осуществление торговой деятельности вне специально отведенных для этого мест</td><td>10к-20к$</td><td>10-20 мин</td></tr>
+<tr class="clickable" data-article="40"><td class="num">40</td><td>Нарушение порядка рассмотрения обращений граждан</td><td>20к-35к$</td><td>20-30 мин</td></tr>
+<tr class="clickable" data-article="41"><td class="num">41</td><td>Браконьерство</td><td>25к-45к$</td><td>-</td></tr>
+<tr class="clickable" data-article="42"><td class="num">42</td><td>Превышение нормы вылова рыбы, водных биоресурсов или добычи охотничьих ресурсов</td><td>12к-35к$</td><td>-</td></tr>
+<tr class="clickable" data-article="43"><td class="num">43</td><td>ч1. Несоблюдение требований к содержанию животных</td><td>12к-20к$</td><td>-</td></tr>
+<tr class="clickable" data-article="43"><td class="num"></td><td>ч2. Жестокое обращение с животными, если действия не содержат УГОЛОВКУ</td><td>20к-40к$</td><td>30-40 мин</td></tr>
+<tr class="clickable" data-article="43"><td class="num"></td><td>ч3. Нарушение ГОС НПА в области обращения с животными</td><td>-</td><td>40 мин</td></tr>
+<tr class="clickable" data-article="43"><td class="num"></td><td>ч4. Нарушение ГОС требований о животных ГОС органами</td><td>35к-85к$</td><td>-</td></tr>
+<tr class="clickable" data-article="44"><td class="num">44</td><td>Незаконные приобретение, хранение, перевозка, изготовление наркотических средств</td><td>-</td><td>25-40 мин</td></tr>
+<tr class="clickable" data-article="45"><td class="num">45</td><td>ч1. Побои</td><td>-</td><td>30-40 мин</td></tr>
+<tr class="clickable" data-article="45"><td class="num"></td><td>ч2. Побои, совершенные по неосторожности</td><td>25к-40к$</td><td>-</td></tr>
+<tr class="clickable" data-article="45 ч.1"><td class="num">45 ч.1</td><td>Умышленные нетяжкие повреждения</td><td>30–40 суток</td><td>-</td></tr>
+<tr class="clickable" data-article="46"><td class="num">46</td><td>Ложное сообщение о совершении преступления</td><td>40к$</td><td>-</td></tr>
+<tr class="clickable" data-article="47"><td class="num">47</td><td>Вмешательство в процесс задержания</td><td>25к-35к$</td><td>20мин</td></tr>
+<tr class="clickable" data-article="48"><td class="num">48</td><td>Заведомо ложный вызов специализированных служб</td><td>5к-10к$</td><td>-</td></tr>
+<tr class="clickable" data-article="49"><td class="num">49</td><td>Неисполнение распоряжения судьи или судебного пристава</td><td>20к-45к$</td><td>25-40 мин</td></tr>
+<tr class="clickable" data-article="50"><td class="num">50</td><td>Неуважение к Сенату штата Сан-Андреас</td><td>25к-50к$</td><td>25-40 мин</td></tr>
+<tr class="clickable" data-article="51"><td class="num">51</td><td>ч1. Неявка сенатора на заседание Сената штата Сан-Андреас</td><td>35к-50к$</td><td>-</td></tr>
+<tr class="clickable" data-article="51"><td class="num"></td><td>ч2. Неявка всех заявленных Сенаторов на экстренное или пленарное заседание Сената</td><td>80к-150к$</td><td>-</td></tr>
+<tr class="clickable" data-article="51-52"><td class="num">51-52</td><td>Нарушения в Сенате</td><td>$15–30 тыс.</td><td>до 25 суток</td></tr>
+<tr class="clickable" data-article="52"><td class="num">52</td><td>ч1. Воспрепятствование деятельности Сената штата Сан-Андреас</td><td>25к-100к$</td><td>-</td></tr>
+<tr class="clickable" data-article="52"><td class="num"></td><td>ч2. Отказ ГОС о предоставлении Сенату отчетов о результатах своей деятельности</td><td>25к-125к$</td><td>-</td></tr>
+<tr class="clickable" data-article="53"><td class="num">53</td><td>Оскорбление представителя государственной власти</td><td>10к-25к$</td><td>20 мин</td></tr>
+<tr class="clickable" data-article="54"><td class="num">54</td><td>ч1. Провокация лица, состоящего на государственной службе на дороге</td><td>20к-40к$</td><td>30-40 мин</td></tr>
+<tr class="clickable" data-article="54"><td class="num"></td><td>ч2. Провокация лица, состоящего на государственной службе</td><td>10к-35к$</td><td>15-35 мин</td></tr>
+<tr class="clickable" data-article="54 ч.2"><td class="num">54 ч.2</td><td>Воспрепятствование исполнению служебных обязанностей</td><td>$10–35 тыс.</td><td>15–35 суток</td></tr>
+<tr class="clickable" data-article="55"><td class="num">55</td><td>ч1. Неповиновение законному распоряжению или требованию ГОСНИКА</td><td>20к-40к$</td><td>15-25 мин</td></tr>
+<tr class="clickable" data-article="55"><td class="num"></td><td>ч2. Неповиновение законному распоряжения прокуратуры</td><td>25к-45к$</td><td>20-30 мин</td></tr>
+<tr class="clickable" data-article="55 ч.1"><td class="num">55 ч.1</td><td>Невыполнение законного требования</td><td>$20–40 тыс.</td><td>15–25 суток</td></tr>
+<tr class="clickable" data-article="56"><td class="num">56</td><td>Отказ от уплаты административного штрафа</td><td>-</td><td>30-40 мин</td></tr>
+<tr class="clickable" data-article="57"><td class="num">57</td><td>ч1. Нарушение установленного режима комендантского часа (ЧП/ВП)</td><td>15к$</td><td>20 мин</td></tr>
+<tr class="clickable" data-article="57"><td class="num"></td><td>ч2. Публичные мероприятия в период ЧП/ВП</td><td>20к$</td><td>30 мин</td></tr>
+<tr class="clickable" data-article="57"><td class="num"></td><td>ч3. Отказ гражданского предъявить доки в период ЧП/ВП</td><td>10к$</td><td>15 мин</td></tr>
+<tr class="clickable" data-article="57"><td class="num"></td><td>ч4. Нарушение порядка в зоне особого контроля в период ЧП/ВП</td><td>15к$</td><td>15 мин</td></tr>
+<tr class="clickable" data-article="58"><td class="num">58</td><td>ч1. Отказ от государственной проверки</td><td>20к-500к$</td><td>-</td></tr>
+<tr class="clickable" data-article="58"><td class="num"></td><td>ч2. Неудовлетворительное прохождение государственной проверки</td><td>500к$</td><td>-</td></tr>
+<tr class="clickable" data-article="59"><td class="num">59</td><td>Незаконный отказ в доступе должностному лицу EMS</td><td>25к-60к$</td><td>-</td></tr>
+<tr class="clickable" data-article="60"><td class="num">60</td><td>ч1. Клевета в отношении ГОСНИКА</td><td>15к$</td><td>20 мин</td></tr>
+<tr class="clickable" data-article="60"><td class="num"></td><td>ч2. Клевета в отношении гражданского</td><td>20к$</td><td>25 мин</td></tr>
+<tr class="clickable" data-article="60"><td class="num"></td><td>ч3. Клевета (часть 1 и 2) + отягчающие</td><td>35к$</td><td>30-40 мин</td></tr>
+<tr class="clickable" data-article="60 ч.1"><td class="num">60 ч.1</td><td>Клевета в отношении госслужащего</td><td>До $15 тыс.</td><td>20 суток</td></tr>
+<tr class="clickable" data-article="61"><td class="num">61</td><td>ч1. Оскорбление</td><td>10к-25к$</td><td>10-30 мин</td></tr>
+<tr class="clickable" data-article="61"><td class="num"></td><td>ч2. Оскорбление, совершенное должностным лицом</td><td>25к-45к$</td><td>20-30 мин</td></tr>
+<tr class="clickable" data-article="61 ч.1"><td class="num">61 ч.1</td><td>Оскорбление гражданина</td><td>$10–25 тыс.</td><td>10–30 суток</td></tr>
+<tr class="clickable" data-article="62"><td class="num">62</td><td>Незаконный отказ или уклонение от внесения записей в реестр административных штрафов</td><td>20к-30к$</td><td>10-15 мин</td></tr>
+<tr class="clickable" data-article="63"><td class="num">63</td><td>Отказ или уклонение от выдачи квитанции об оплате административного штрафа</td><td>7к$</td><td>10-15 мин</td></tr>
+<tr class="clickable" data-article="64"><td class="num">64</td><td>ч1. Осуществление малым или средним предприятием предпринимательства без лицухи</td><td>35к-50к$</td><td>10-30 мин</td></tr>
+<tr class="clickable" data-article="64"><td class="num"></td><td>ч2. Осуществление организацией предпринимательской деятельности без лицухи</td><td>50к-65к$</td><td>30-40 мин</td></tr>
+<tr class="clickable" data-article="64"><td class="num"></td><td>ч3. Нарушением санитарно-эпидемиологических требований субъектом малог/среднего бизнеса</td><td>30к-120к$</td><td>-</td></tr>
+<tr class="clickable" data-article="64"><td class="num"></td><td>ч4. Нарушением санитарно-эпидемиологических требований организацией</td><td>35к-130к$</td><td>-</td></tr>
+<tr class="clickable" data-article="64 ч.1"><td class="num">64 ч.1</td><td>Нарушение законности малого/среднего бизнеса</td><td>$35–50 тыс.</td><td>15–35 суток</td></tr>
+</table>
+</section>
+
+<!-- ================= ДК ================= -->
+<section class="tab" id="tab-dk">
+<h2>Дорожный кодекс</h2>
+<div class="note warn" style="margin-top:0; margin-bottom:10px; padding:8px 12px; font-size:12px;">
+      💡 <b>Подсказка:</b> Нажмите <b>ЛКМ</b> на статью для просмотра частей.
+    </div>
+<table>
+<tr><th>№</th><th>Статья</th><th>Штраф</th><th>Время в КПЗ</th></tr>
+<tr class="clickable" data-article="1"><td class="num">1</td><td>Водитель должен предъявить ГОСНИКУ документы</td><td>2к$</td><td>10 мин</td></tr>
+<tr class="clickable" data-article="2"><td class="num">2</td><td>Водитель обязан остановиться по требованию ГОСНИКА</td><td>2к$</td><td>20 мин</td></tr>
+<tr class="clickable" data-article="3"><td class="num">3</td><td>Водитель обязан проходить мед/нарко освидетельствование по требованию ГОСНИКА</td><td>1.5к$</td><td>20 мин</td></tr>
+<tr class="clickable" data-article="4"><td class="num">4</td><td>При аварии водитель обязан остановиться и не трогаться с места</td><td>5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="5"><td class="num">5</td><td>При аварии в которой ранены люди водитель обязан оказать ПМП и вызвать EMS</td><td>20к$</td><td>40 мин</td></tr>
+<tr class="clickable" data-article="7"><td class="num">7</td><td>Вождение ТС в состоянии алкогольного опьянения</td><td>15к$</td><td>30 мин</td></tr>
+<tr class="clickable" data-article="7.1"><td class="num">7.1</td><td>Вождение ТС в состоянии наркотического опьянении</td><td>5к$</td><td>40 мин</td></tr>
+<tr class="clickable" data-article="7.2"><td class="num">7.2</td><td>Водителю запрещено употреблять алко/нарко при аварии к которой он причастен</td><td>5к$</td><td>40 мин</td></tr>
+<tr class="clickable" data-article="8"><td class="num">8</td><td>Водителю запрещено передавать управление ТС гражданскому без лицензии/под алко/нарко</td><td>2к$</td><td>40 мин</td></tr>
+<tr class="clickable" data-article="9"><td class="num">9</td><td>Водителю запрещено пересекать и занимать место в организованных колоннах или кортежах</td><td>4к$</td><td>40 мин</td></tr>
+<tr class="clickable" data-article="11"><td class="num">11</td><td>Водителю запрещается пользоваться во время движения телефоном</td><td>1.5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="12"><td class="num">12</td><td>Водителю запрещено совершать безрассудное вождение</td><td>4к$</td><td>-</td></tr>
+<tr class="clickable" data-article="12.1"><td class="num">12.1</td><td>Передвижение на мото-транспортных средствах без мотошлема</td><td>1.5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="13"><td class="num">13</td><td>ГОСНИКИ с спецсигналами могут не следовать правилам ДК при условии безопастности</td><td>3к$</td><td>-</td></tr>
+<tr class="clickable" data-article="13.1"><td class="num">13.1</td><td>ГОСНИКИ с спецсигналами имеют приоритет при условии безопастности</td><td>3к$</td><td>-</td></tr>
+<tr class="clickable" data-article="14"><td class="num">14</td><td>Необходимо уступить дорогу ТС с включенными спец., сигналами</td><td>1.5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="14.1"><td class="num">14.1</td><td>Если ТС со спец., сигналами несколько, то приоритет имеет EMS</td><td>10к$</td><td>-</td></tr>
+<tr class="clickable" data-article="15"><td class="num">15</td><td>Необходимо снизить скорость при приближении ТС с включенными спец., сигналами</td><td>2к$</td><td>-</td></tr>
+<tr class="clickable" data-article="16"><td class="num">16</td><td>Маячок желтого цвета служит для предупреждения других водителей</td><td>1.5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="17"><td class="num">17</td><td>Пешеходы обязаны двигаться по тротуару или по обочине</td><td>6.5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="18"><td class="num">18</td><td>Пешеход обязан остановиться и пропустить ТС со спец., сигналами</td><td>3.5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="19"><td class="num">19</td><td>Пешеходы обязаны воздержаться от перехода дороги если приближается ТС со спец., сигналами</td><td>5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="20"><td class="num">20</td><td>Скейты, ролики и т.п. запрещено передвигаться по проезжей части</td><td>7.5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="21"><td class="num">21</td><td>Пешеходы не должны отвлекаться на телефон</td><td>2.5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="22"><td class="num">22</td><td>При выезде на дорогу с прилегающей территории водитель должен уступить дорогу ТС</td><td>1.5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="23"><td class="num">23</td><td>При перестроении водитель должен уступить дорогу ТС, движущимся попутно без изменений</td><td>1.5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="23.1"><td class="num">23.1</td><td>При маневрировании водитель обязан указать соответствующим сигналом поворота направление</td><td>2к$</td><td>-</td></tr>
+<tr class="clickable" data-article="24"><td class="num">24</td><td>Перед поворотом направо водитель должен заранее занять крайнее правое положение</td><td>2к$</td><td>-</td></tr>
+<tr class="clickable" data-article="25"><td class="num">25</td><td>При развороте/повороте налево вне перекрестка водитель должен пропустить встречные ТС</td><td>2к$</td><td>-</td></tr>
+<tr class="clickable" data-article="26"><td class="num">26</td><td>На регулируемых перекрестках водитель должен уступить дорогу ТС с приоритетом</td><td>1.8к$</td><td>-</td></tr>
+<tr class="clickable" data-article="26.1"><td class="num">26.1</td><td>На нерегулируемых перекрестках дорогу уступает водитель к которому ТС приближается справа</td><td>1.8к$</td><td>-</td></tr>
+<tr class="clickable" data-article="27"><td class="num">27</td><td>Разворот запрещается на неотведенных для этого местах</td><td>4к$</td><td>-</td></tr>
+<tr class="clickable" data-article="28"><td class="num">28</td><td>Движение в штате является правосторонним</td><td>1.8к$</td><td>-</td></tr>
+<tr class="clickable" data-article="29"><td class="num">29</td><td>На дорогах с двусторонним движением запрещается двигаться по полосе встречного движения</td><td>5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="30"><td class="num">30</td><td>ТС со скоростью менее 60км/ч должны двигаться по правой полосе, кроме случаев перестроения</td><td>1.8к$</td><td>-</td></tr>
+<tr class="clickable" data-article="31"><td class="num">31</td><td>Запрещается двигаться ТС по обочинам, тротуарам, пешеходным и велодорожкам</td><td>5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="32"><td class="num">32</td><td>а) Скоростной лимит в населенных пунктах – 100 км/ч</td><td>1.5к-4.5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="32"><td class="num"></td><td>б) Скоростной лимит в жилых зонах и дворовых территориях – 50 км/ч</td><td></td><td></td></tr>
+<tr class="clickable" data-article="32"><td class="num"></td><td>в) Скоростной лимит вне населенных пунктах – 130 км/ч</td><td></td><td></td></tr>
+<tr class="clickable" data-article="32"><td class="num"></td><td>г) Скоростной лимит на автомагистралях – 170 км/ч</td><td></td><td></td></tr>
+<tr class="clickable" data-article="33"><td class="num">33</td><td>ТС производящим буксировку разрешается двигаться со скоростью не более 50 км/ч</td><td>1.5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="34"><td class="num">34</td><td>Водителю запрещается создавать помехи другим ТС двигаясь без надобности с маленькой скоростю</td><td>5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="35"><td class="num">35</td><td>Перед обгоном водитель должен убедиться в безопасности маневра</td><td>1.8к$</td><td>-</td></tr>
+<tr class="clickable" data-article="36"><td class="num">36</td><td>Обгон запрещен при определенных обстоятельствах</td><td>1.5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="37"><td class="num">37</td><td>Водитель должен пропустить автобус, который выезжает с автобусной остановки</td><td>1.8к$</td><td>-</td></tr>
+<tr class="clickable" data-article="38"><td class="num">38</td><td>Остановка и парковка разрешаются на правой стороне дороги, вплотную к бордюру</td><td>1.5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="40"><td class="num">40</td><td>Ставить транспортное средство разрешается в один ряд параллельно краю проезжей части</td><td>1.5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="41"><td class="num">41</td><td>Остановка запрещается в определенных случаях</td><td>10к$</td><td>-</td></tr>
+<tr class="clickable" data-article="42"><td class="num">42</td><td>Остановка запрещена на автомагистралях (хайвеях), кроме случаев чрезвычайной остановки</td><td>1.5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="43"><td class="num">43</td><td>На автомагистралях запрещается определенные действия</td><td>3.5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="44"><td class="num">44</td><td>В темное время суток/в условиях плохой погоды/в тоннелях ТС должны исп ближний/дальний свет</td><td>2к$</td><td>-</td></tr>
+<tr class="clickable" data-article="45"><td class="num">45</td><td>В населенных пунктах где дорога освещена, дальний свет должен быть переключен на ближний</td><td>1.5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="46"><td class="num">46</td><td>Звуковой сигнал разрешается подавать для предупреждения других водителей о намерении обгона</td><td>1.5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="47"><td class="num">47</td><td>Пересекать желтую двойную сплошную линию для совершения обгона запрещено</td><td>3.5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="47/48"><td class="num">47/48</td><td>Пересечение жёлтых линий</td><td>См. ДК 47–48</td><td>-</td></tr>
+<tr class="clickable" data-article="48"><td class="num">48</td><td>Одиночная желтая сплошная линия предупреждает о встречном движении - обгон запрещен.</td><td>2к$</td><td>-</td></tr>
+<tr class="clickable" data-article="49"><td class="num">49</td><td>Белая сплошная линия нанесенная в пределах проезжей части - пересекать её нельзя</td><td>1.5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="50"><td class="num">50</td><td>Стрелки нанесенные на дорогу для каждой полосы, указывают направления движения по полосам</td><td>1.5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="51"><td class="num">51</td><td>Разметка в виде стрелок налево (направо) под углом - водитель должен пропустить ТС</td><td>1.5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="51-52"><td class="num">51-52</td><td>Нарушение разметки направления</td><td>До $2 тыс.</td><td>-</td></tr>
+<tr class="clickable" data-article="52"><td class="num">52</td><td>Стоп-линия требует остановиться для того чтобы пропустить движущийся ТС на перекрестке</td><td>3к$</td><td>-</td></tr>
+<tr class="clickable" data-article="53"><td class="num">53</td><td>Требуется останавливаться перед пешеходным переходом, если пешеходы пересекают дорогу</td><td>2к$</td><td>-</td></tr>
+<tr class="clickable" data-article="54"><td class="num">54</td><td>Двойная сплошная линия переходящая в сплошную линию с пунктирной, разрешает обгон</td><td>1.5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="55"><td class="num">55</td><td>Разметка Bus Lane обозначает специальную полосу для автобусов</td><td>1.5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="56"><td class="num">56</td><td>Разметка No Parking и Keep Clear запрещает постановку любого ТС в пределах разметки</td><td>1.5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="57"><td class="num">57</td><td>Разделительная полоса</td><td>До $1,5 тыс.</td><td>-</td></tr>
+<tr class="clickable" data-article="59"><td class="num">59</td><td>Сплошная красная линия (красный бордюр) запрещает остановку/стоянку в этом месте</td><td>2к$</td><td>-</td></tr>
+<tr class="clickable" data-article="60"><td class="num">60</td><td>Запрещается использование ТС не прошедшее процедуру ГОС учета (актуальную регистрацию)</td><td>5к$</td><td>-</td></tr>
+<tr class="clickable" data-article="61"><td class="num">61</td><td>Запрещается использование ТС без ГОС номеров при пробеге большем чем 10 километров</td><td>5к-7к$</td><td>-</td></tr>
+<tr class="clickable" data-article="62"><td class="num">62</td><td>Запрещается использование ТС с номерами, отличающимися от номеров в ПТС на машину</td><td>7к$</td><td>40 мин</td></tr>
+<tr class="clickable" data-article="63-68"><td class="num">63-68</td><td>Условия и порядок эвакуации</td><td>-</td><td>Эвакуация запрещена</td></tr>
+</table>
+<h2>Нормы добычи (биоресурсы)</h2>
+<div class="grid">
+<div class="card"><h4>🎣 Рыбалка</h4><p>Любительская — <b>10 кг</b>;<br/>промышленная — <b>90 кг</b>.</p></div>
+<div class="card"><h4>🏹 Охота</h4><p>Любительская — <b>10 кг</b>;<br/>промышленная — <b>40 кг</b>.</p></div>
+<div class="card"><h4>📄 Лицензии</h4><p>Лицензии и способы — по закону.</p></div>
+</div>
+</section>
+
+<!-- ================= ПК ================= -->
+<section class="tab" id="tab-pk">
+<h2>Порядок задержания (ПК 17)</h2>
+<div class="stages">
+<div class="stage"><span class="n">1</span>Присутствие</div>
+<div class="stage"><span class="n">2</span>Приказ</div>
+<div class="stage"><span class="n">3</span>Физическая сила</div>
+<div class="stage"><span class="n">4</span>Спецсредства</div>
+<div class="stage"><span class="n">5</span>Огнестрельное оружие</div>
+</div>
+<table>
+<tr><th style="width:50%">Стадии задержания</th><th>Сроки</th></tr>
+<tr><td>1. Применение наручников</td><td>Телефонный разговор — до 5 минут</td></tr>
+<tr><td>2. Предъявление служебного идентификатора</td><td>Ответ адвоката — 5 минут</td></tr>
+<tr><td>3. Первичный обыск по усмотрению сотрудника</td><td>Прибытие адвоката — 10 минут</td></tr>
+<tr><td>4. Разъяснение оснований и зачитывание Миранды</td><td>Прокурор: ответ — до 15 минут; прибытие — до 10 минут</td></tr>
+<tr><td>5. Доставление к месту следственных действий при необходимости</td><td>—</td></tr>
+<tr><td>6. Установление личности; проверка розыска и госслужбы</td><td>—</td></tr>
+<tr><td>7. Реализация прав; для госслужбы — порядок ПК 19</td><td>—</td></tr>
+<tr><td>8. Следственные действия при необходимости</td><td>—</td></tr>
+<tr><td>9. Доставка в КПЗ / SASPA</td><td>—</td></tr>
+</table>
+<h2>Правило Миранды (ПК 17 ч. 3)</h2>
+<div class="miranda">
+      «<b>Вы имеете право хранить молчание.</b><br/>
+      Всё, что Вы скажете, может и будет использовано против Вас в суде.<br/>
+<b>Вы имеете право на один телефонный звонок.</b><br/>
+      Также Вы имеете право на адвоката.<br/>
+      Если Вам необходим адвокат, он будет для Вас запрошен.<br/>
+<b>Вы понимаете свои права?</b>»
+    </div>
+<div class="note warn">
+      При непонимании прав — повторное зачитывание. После второго прочтения — уведомление об отсутствии повторов.
+    </div>
+
+<!-- ====== НОВЫЕ РАЗДЕЛЫ ПК ====== -->
+<h2>Порядок ареста (ПК 25, 27, 28)</h2>
+<table>
+<tr><th>Шаг</th><th>Действие</th></tr>
+<tr><td>1</td><td>Вторичный обыск</td></tr>
+<tr><td>2</td><td>Изъятие обнаруженного нелегального</td></tr>
+<tr><td>3</td><td>Разъяснение причины ареста</td></tr>
+<tr><td>4</td><td>Поместить в соответствующую камеру</td></tr>
+</table>
+
+<h2>Основания задержания (ПК 16)</h2>
+<div class="card">
+<ul>
+<li>Лицо застигнуто при совершении деяния либо сразу после</li>
+<li>Явные следы правонарушения</li>
+<li>Не менее 3 незаинтересованных свидетелей</li>
+<li>Фото- / видеофиксация</li>
+<li>Иные основания по ПК 16</li>
+<li>БОЛО / федеральный розыск</li>
+<li>Нормы улова / добычи</li>
+</ul>
+</div>
+
+<h2>Основания освобождения (ПК 20)</h2>
+<div class="card">
+<ul>
+<li>✅ Подозрение в совершении правонарушения не подтвердилось</li>
+<li>✅ За деяние не предусмотрено наказание</li>
+<li>✅ Нарушены требования к основаниям задержания (ПК 16 ч. 1)</li>
+<li>✅ Истёк процессуальный час с учётом пауз</li>
+<li>✅ Объект ТС: ПК 30 + Blaine 3.20</li>
+<li>✅ IC-основания без ордера — ПК 30</li>
+<li>✅ Функциональный объект: нарушение ТС</li>
+<li>✅ Открыто: /do; закрыто: успешный /try</li>
+</ul>
+</div>
+
+<div class="note warn">
+При непонимании прав — повторное зачитывание. После второго прочтения — уведомление об отсутствии повторов.
+</div>
+
+<h2>Субъекты задержания (ПК 18)</h2>
+<div class="card">
+<ul>
+<li>Инициатор и содействующие сотрудники</li>
+<li>Задержанный</li>
+<li>Один адвокат и/или прокурор</li>
+<li>Руководство госслужащего: FIB / USSS по условиям</li>
+</ul>
+</div>
+
+<h2>Дополнительно</h2>
+<div class="card">
+<ul>
+<li>🚫 Требование об открытии багажника — запрещено.</li>
+<li>📦 Изъятие: /report и /try; присутствие владельца.</li>
+<li>🚗 Остановка ТС: «Водитель обязан остановиться по требованию сотрудника правоохранительных органов.» (ДК 2)</li>
+<li>🕵️ Постороннее по требованию: задержание на 5 м либо выход из помещения.</li>
+</ul>
+</div>
+</section>
+
+<!-- ================= ПРОЧЕЕ ================= -->
+<section class="tab" id="tab-more">
+<h2>Юрисдикция</h2>
+<div class="grid">
+<div class="card"><h4>🟧 Округ Блэйн</h4><p>LSSD, SANG, FIB, USSS</p></div>
+<div class="card"><h4>🟦 Лос-Сантос</h4><p>LSPD, FIB, USSS</p></div>
+<div class="card"><h4>🌫️ Серая зона</h4><p>LSPD, LSSD, SANG, FIB, USSS</p></div>
+<div class="card"><h4>🏝️ Cayo Perico</h4><p>Все правоохранительные, военные, федеральные, пенитенциарные</p></div>
+<div class="card"><h4>🌊 Водное пространство</h4><p>LSSD, LSPD</p></div>
+<div class="card"><h4>🌍 Вся территория (федеральная)</h4><p>FIB, USSS</p></div>
+<div class="card"><h4>✈️ Воздушное пространство</h4><p>USAF (SANG)</p></div>
+<div class="card"><h4>🕙 Открытие юрисдикции</h4><p>Ежедневно <b>22:00–10:00</b> — LSPD, LSSD, SANG получают федеральную юрисдикцию.</p></div>
+</div>
+<h2>Неприкосновенные лица (Подробно)</h2>
+<div class="grid">
+<div class="card">
+<h4>🛑 Полный иммунитет</h4>
+<ul>
+<li>Губернатор, Вице-губернатор и его советники</li>
+<li>Глава Администрации губернатора и его замы</li>
+<li>Главы департаментов и их замы</li>
+<li>Судьи всех категорий</li>
+<li>Генеральный прокурор и его замы</li>
+<li>Руководители органов гос власти и их замы</li>
+</ul>
+</div>
+<div class="card">
+<h4>⚠️ Условный иммунитет</h4>
+<ul>
+<li>Члены Сената и Спикер Сената <br/><small style="color:var(--muted); font-size:12px;">на время следственных действий и участия в судопроизводстве</small></li>
+<li>Адвокаты <br/><small style="color:var(--muted); font-size:12px;">на время участия в судопроизводстве</small></li>
+</ul>
+</div>
+</div>
+
+<!-- ====== НОВЫЕ РАЗДЕЛЫ ПРОЧЕЕ ====== -->
+<h2>Особо охраняемые объекты</h2>
+<div class="card">
+<ul>
+<li>✈️ Аэропорт: ВПП, ангары и прилегающая территория</li>
+<li>🏛️ Федеральная тюрьма Bolingbroke</li>
+<li>🪖 Форт Занкудо и авиабаза</li>
+<li>🏢 Офис FIB и Капитолий, кроме холлов</li>
+<li>📋 Дополнительные режимные объекты по правовым актам</li>
+</ul>
+</div>
+
+<h2>Охраняемые объекты</h2>
+<div class="card">
+<ul>
+<li>🚓 Служебные зоны LSPD и LSSD</li>
+<li>🏥 Служебные зоны медицинских учреждений</li>
+<li>🏛️ Мэрия округа Блейн, кроме холла</li>
+</ul>
+</div>
+
+<div class="note warn">
+Не смешивать охраняемые и особо охраняемые. Допуски и границы — в комментариях УК / КоАП.
+<br/>
+⚠️ Расхождение: ПК 24 — 3 года = 20 минут; комментарий УК — 1 год = 5 минут. Требуется разъяснение.
+</div>
+
+<h2>Правовая защита силовых структур</h2>
+<table>
+<tr><th>Структура</th><th>Условия задержания</th></tr>
+<tr><td>USSS / FIB</td><td>Угроза жизни; преступления по гл. 15/16; гостайна; ордер; незаконное проникновение на охраняемую территорию</td></tr>
+<tr><td>ARMY</td><td>Угроза жизни; незаконное проникновение на закрытую/охраняемую (не ЗОТ!); гл. 15/16; против военной службы; гостайна; ордер</td></tr>
+<tr><td>USMS</td><td>Угроза жизни / ордер, решение суда, разрешение Директора USMS</td></tr>
+<tr><td>LSPD / LSSD / SASPA / EMS</td><td>За все уголовные нарушения</td></tr>
+<tr><td>Прокуратура</td><td>Угроза жизни; ордер; решение суда; разрешение ГП / замов</td></tr>
+<tr><td>Адвокатура</td><td>За все уголовные и админ.; во время помощи — нельзя (кроме 6.1.1 УАК)</td></tr>
+</table>
+<div class="note">
+🚓 При исполнении USSS / FIB / ARMY / LSPD / LSSD / SASPA / EMS — не привлекаются за нарушение ДК.
+</div>
+
+<h2>Иерархия НПА</h2>
+<div class="stages">
+  <div class="stage"><span class="n">1</span>Внутренние акты ГОС</div>
+  <div class="stage"><span class="n">2</span>Акты министерств</div>
+  <div class="stage"><span class="n">3</span>Акты Губера / Вице</div>
+  <div class="stage"><span class="n">4</span>Законы и кодексы</div>
+  <div class="stage"><span class="n">★</span>Конституция</div>
+</div>
+
+<h2>Макросы</h2>
+<div class="grid">
+  <div class="card">
+    <h4>ЖЕТОН ДЛЯ НЕ ЗАСЕКРЕЧЕННЫХ</h4>
+    <p>/todo Сотрудник San Andreas ГОС СТРУКТУРА, ИНИЦИАЛЫ*указав на нашивку: [СТРУКТУРА | ПОДРАЗДЕЛЕНИЕ/ДОЛЖНОСТЬ | №ПАСПОРТ | ИНИЦИАЛЫ]</p>
+    <pre class="code-block">WyLQndCw0YjQuNCy0LrQsCIsW3siaWQiOiJjaGF0X3JwX3RvZG8iLCJwYXJhbXMiOlsi0KHQvtGC0YDRg9C00L3QuNC6IFNhbiBBbmRyZWFzIE5hdGlvbmFsIEd1YXJkLCBSYXlzIE1vcmdhbiAq0YPQutCw0LfQsNCyINC90LAg0L3QsNGI0LjQstC60YM6IFtTQU5HIHwgR2VuZXJhbCB8IOKEljg5ODI3IHwgUi5NXSJdfV1d</pre>
+  </div>
+  <div class="card">
+    <h4>ЖЕТОН ДЛЯ ЗАСЕКРЕЧЕННЫХ</h4>
+    <p>/todo Сотрудник ГОС СТРУКТУРА*указав на нашивку: [СТРУКТУРА | ПОДРАЗДЕЛЕНИЕ | №БЕЙДЖИКА]</p>
+    <pre class="code-block">WyLQndCw0YjQuNCy0LrQsCIsW3siaWQiOiJjaGF0X3JwX3RvZG8iLCJwYXJhbXMiOlsi0KHQvtGC0YDRg9C00L3QuNC6IFNhbiBBbmRyZWFzIE5hdGlvbiBHdWFyZCrRg9C60LDQt9Cw0LIg0L3QsCDQvdCw0YjQuNCy0LrRgzogW1NBTkcgfCBDb20uTVAgfCDihJYxXSJdfV1d</pre>
+  </div>
+  <div class="card">
+    <h4>ОБЫСК ИГРОКА</h4>
+    <p>/me надел одноразовые стерильные перчатки + /me прохлопал верхний и нижний слой одежды @target + (действие) обыскать человека</p>
+    <pre class="code-block">WyLQntCx0YvRgdC6IixbeyJpZCI6ImNoYXRfcnBfbWUiLCJwYXJhbXMiOlsi0L3QsNC00LXQuyDQvtC00L3QvtGA0LDQt9C+0LLRi9C1INGB0YLQtdGA0LjQu9GM0L3Ri9C1INC/0LXRgNGH0LDRgtC60LgiXX0seyJpZCI6ImNoYXRfcnBfbWUiLCJwYXJhbXMiOlsi0L/RgNC+0YXQu9C+0L/QsNC7INCy0LXRgNGF0L3QuNC5INC4INC90LjQttC90LjQuSDRgdC70L7QuSDQvtC00LXQttC00YsgQHRhcmdldCJdfSx7ImlkIjoiYXJteV9zZWFyY2giLCJwYXJhbXMiOltdfV1d</pre>
+  </div>
+  <div class="card">
+    <h4>МИРАНДА</h4>
+    <p>(стандартный чат) Вы имеете право хранить молчание, все что вы скажете может и будет использовано против вас. + (стандартный чат) Вы имеете право один телефонный звонок. Также вы имеете право на адвоката. + (стандартный чат) Если вам необходим адвокат, он будет для Вас запрошен. Вы понимаете свои права?</p>
+    <pre class="code-block">WyLQnNC40YDQsNC90LTQsCIsW3siaWQiOiJjaGF0X2RlZiIsInBhcmFtcyI6WyLQktGLINC40LzQtdC10YLQtSDQv9GA0LDQstC+INGF0YDQsNC90LjRgtGMINC80L7Qu9GH0LDQvdC40LUsINCy0YHQtSDRh9GC0L4g0LLRiyDRgdC60LDQttC10YLQtSDQvNC+0LbQtdGCINC4INCx0YPQtNC10YIg0LjRgdC/0L7Qu9GM0LfQvtCy0LDQvdC+INC/0YDQvtGC0LjQsiDQstCw0YEuIl19LHsiaWQiOiJjaGF0X2RlZiIsInBhcmFtcyI6WyLQktGLINC40LzQtdC10YLQtSDQv9GA0LDQstC+INC+0LTQuNC9INGC0LXQu9C10YTQvtC90L3Ri9C5INC30LLQvtC90L7Qui4g0KLQsNC60LbQtSDQstGLINC40LzQtdC10YLQtSDQv9GA0LDQstC+INC90LAg0LDQtNCy0L7QutCw0YLQsC4iXX0seyJpZCI6ImNoYXRfZGVmIiwicGFyYW1zIjpbItCV0YHQu9C4INCy0LDQvCDQvdC10L7QsdGF0L7QtNC40Lwg0LDQtNCy0L7QutCw0YIsINC+0L0g0LHRg9C00LXRgiDQtNC70Y8g0JLQsNGBINC30LDQv9GA0L7RiNC10L0uINCS0Ysg0L/QvtC90LjQvNCw0LXRgtC1INGB0LLQvtC4INC/0YDQsNCy0LA/Il19XV0=</pre>
+  </div>
+  <div class="card">
+    <h4>ВЫЗОВ АДВОКАТА</h4>
+    <p>/r или /d Запрашиваю адвоката по адресу @zone + (стандартный чат) Адвокат был запрошен в @time</p>
+    <pre class="code-block">WyLQktGL0LfQvtCyINCw0LTQstC60LDRgtCwIixbeyJpZCI6ImNoYXRfZmFjdGlvbiIsInBhcmFtcyI6WyLQl9Cw0L/RgNCw0YjQuNCy0LDRjiDQsNC00LLQvtC60LDRgtCwINC/0L4g0LDQtNGA0LXRgdGDIEB6b25lIl19LHsiaWQiOiJjaGF0X2RlZiIsInBhcmFtcyI6WyLQkN C00LLQvtC60LDRgiDQsdGL0Lsg0LLRi9C30LLQsNC9INCyIEB0aW1lIl19XV0=</pre>
+  </div>
+  <div class="card">
+    <h4>ПОКАЗАТЬ ФИКСУ С БОДИКА</h4>
+    <p>/me достал телефон и SD-карту, вставил SD-карту в телефон + /me открыл директорию с видеозаписями и включил запись + /me взял телефон в левую руку, правой рукой взял задержанного</p>
+    <pre class="code-block">WyLQl9Cw0L/QuNGB0YwiLFt7ImlkIjoiY2hhdF9ycF9tZSIsInBhcmFtcyI6WyLQtNC+0YHRgtCw0Lsg0YLQtdC70LXRhNC+0L0g0LggU0Qt0LrQsNGA0YLRgywg0LLRgdGC0LDQstC40LsgU0Qt0LrQsNGA0YLRgyDQsiDRgtC10LvQtdGE0L7QvSJdfSx7ImlkIjoiY2hhdF9ycF9tZSIsInBhcmFtcyI6WyLQvtGC0LrRgNGL0Lsg0LTQuNGA0LXQutGC0L7RgNC40Y4g0YEg0LLQuNC00LXQvtC30LDQv9C40YHRj9C80Lgg0Lgg0LLQutC70Y7Rh9C40Lsg0LfQsNC/0LjRgdGMIl19LHsiaWQiOiJjaGF0X3JwX21lIiwicGFyYW1zIjpbItCy0LfRj9C7INGC0LXQu9C10YTQvtC9INCyINC70LXQstGD0Y4g0YDRg9C60YMsINC/0YDQsNCy0L7QuSDRgNGD0LrQvtC5INCy0LfRj9C7INC30LDQtNC10YDQttCw0L3QvdC+0LPQviJdfV1d</pre>
+  </div>
+  <div class="card">
+    <h4>МЕГАФОН ТРЕБОВАНИЯ ОСТАНОВИТЬ ТС</h4>
+    <p>(чат мегафон) Говорит сотрудник ГОС СТРУКТУРА! Водитель, прижмитесь к обочине, остановитесь, заглушите двигатель и выйдите из машины! + (чат мегафон) В противном случае по Вам откроют огонь!</p>
+    <pre class="code-block">WyLQnNC10LPQsNGE0L7QvSIsW3siaWQiOiJjaGF0X21lZ2Fmb24iLCJwYXJhbXMiOlsi0JPQvtCy0L7RgNC40YIg0YHQvtGC0YDRg9C00L3QuNC6IFNBTkchINCS0L7QtNC40YLQtdC70YwsINC/0YDQuNC20LzQuNGC0LXRgdGMINC6INC+0LHQvtGH0LjQvdC1LCDQvtGB0YLQsNC90L7QstC40YLQtdGB0YwsINC30LDQs9C70YPRiNC40YLQtSDQtNCy0LjQs9Cw0YLQtdC70Ywg0Lgg0LLRi9C50LTQuNGC0LUg0LjQtyDQvNCw0YjQuNC90YshICJdfV1d</pre>
+  </div>
+  <div class="card">
+    <h4>МЕГАФОН ТРЕБОВАНИЯ ПОКИНУТЬ СО</h4>
+    <p>(чат мегафон) Говорит сотрудник ГОС СТРУКТУРА! Граждане, покиньте место проведения СО! + (чат мегафон) В противном случае по Вам откроют огонь!</p>
+    <pre class="code-block">WyLQotGA0LXQsdC+0LLQsNC90LjRjyDQv9C+0LrQuNC90YPRgtGMINCh0J4iLFt7ImlkIjoiY2hhdF9tZWdhZm9uIiwicGFyYW1zIjpbItCT0L7QstC+0YDQuNGCINGB0L7RgtGA0YPQtNC90LjQuiBBUk1ZISDQk9GA0LDQttC00LDQvdC1LCDQv9C+0LrQuNC90YzRgtC1INC80LXRgdGC0L4g0L/RgNC+0LLQtdC00LXQvdC40Y8g0KHQniEiXX0seyJpZCI6ImNoYXRfbWVnYWZvbiIsInBhcmFtcyI6WyLQkiDQv9GA0L7RgtC40LLQvdC+0Lwg0YHQu9GD0YfQsNC1INC/0L4g0JLQsNC8INC+0YLQutGA0L7RjtGCINC+0LPQvtC90YwhINCjINCy0LDRgSDQtdGB0YLRjCAxMCDRgdC10LrRg9C90LQuIl19XV0=</pre>
+  </div>
+  <div class="card">
+    <h4>ПРОВЕРКА НА УГОН ТС</h4>
+    <p>/me начал присматриваться к дверному замку автомобиля, осматривая его на предмет взлома + /do у автомобиля, стоящего рядом, выявлены очевидные следы взлома</p>
+    <pre class="code-block">WyLQo9Cz0L7QvdC60LAiLFt7ImlkIjoiY2hhdF9ycF9tZSIsInBhcmFtcyI6WyLQvdCw0YfQsNC7INC/0YDQuNGB0LzQsNGC0YDQuNCy0LDRgtGM0YHRjyDQuiDQtNCy0LXRgNC90L7QvNGDINC30LDQvNC60YMg0LDQstGC0L7QvNC+0LHQuNC70Y8sINC+0YHQvNCw0YLRgNC40LLQsNGPINC10LPQviDQvdCwINC/0YDQtdC00LzQtdGCINCy0LfQu9C+0LzQsCJdfSx7ImlkIjoiY2hhdF9ycF90cnkiLCJwYXJhbXMiOlsiINGDINCw0LLRgtC+0LzQvtCx0LjQu9GPLCDRgdGC0L7Rj9GJ0LXQs9C+INGA0Y/QtNC+0LwsINCy0YvRj9Cy0LvQtdC90Ysg0L7Rh9C10LLQuNC00L3Ri9C1INGB0LvQtdC00Ysg0LLQt9C70L7QvNCwIl19XV0=</pre>
+  </div>
+  <div class="card">
+    <h4>ПРОВЕРКА СУТЕНЕРКИ</h4>
+    <p>/me достал планшет с базой данных проституток + /do Планшет в руках. + /me сверил лицо гражданки напротив с базой данных проституток + /do лица схожи</p>
+    <pre class="code-block">WyLQn9GA0L7RgdGC0LjRgtGD0YLQutCwIixbeyJpZCI6ImNoYXRfcnBfbWUiLCJwYXJhbXMiOlsi0LTQvtGB0YLQsNC7INC/0LvQsNC90YjQtdGCINGBINCx0LDQt9C+0Lkg0LTQsNC90L3Ri9GFINC/0YDQvtGB0YLQuNGC0YPRgtC+0LoiXX0seyJpZCI6ImNoYXRfcnBfZG8iLCJwYXJhbXMiOlsi0J/Qu9Cw0L3RiNC10YIg0LIg0YDRg9C60LDRhS4iXX0seyJpZCI6ImNoYXRfcnBfbWUiLCJwYXJhbXMiOlsi0YHQstC10YDQuNC7INC70LjRhtC+INCz0YDQsNC20LTQsNC90LrQuCDQvdCw0L/RgNC+0YLQuNCyINGBINCx0LDQt9C+0Lkg0LTQsNC90L3Ri9GFINC/0YDQvtGB0YLQuNGC0YPRgtC+0LoiXX0seyJpZCI6ImNoYXRfcnBfdHJ5IiwicGFyYW1zIjpbItC70LjRhtCwINGB0YXQvtC20LgiXX1dXQ==</pre>
+  </div>
+  <div class="card">
+    <h4>ЭВАКУАЦИЯ АВТОПАРКА</h4>
+    <p>(чат фракции RP) Эвакуаторщик Олег заводит свой ржавый эвакуатор. Эвакуация через 30 секунд. + (подождать N секунд) 15 + (чат фракции RP) Эвакуация через 15 секунд. (подождать N секунд) 5 + (чат фракции RP) Эвакуация через 10 секунд. + (подождать N секунд) 5 + (чат фракции RP) Эвакуация через 5 секунд. + (подождать N секунд) 5 (чат фракции RP) Эвакуация начата. + (подождать N секунд) 5 + (чат фракции RP) Эвакуация закончена. во время отправки слов “Эвакуация начата.” вы должны в меню фракции прожать кнопку респавна транспорта (иконка домика)</p>
+    <pre class="code-block">WyLQoNC10YHQutCw0YAiLFt7ImlkIjoiY2hhdF9mYWN0aW9uIiwicGFyYW1zIjpbItCt0LLQsNC60YPQsNGC0L7RgNGJ0LjQuiDQntC70LXQsyDQt9Cw0LLQvtC00LjRgiDRgdCy0L7QuSDRgNC20LDQstGL0Lkg0Y3QstCw0LrRg9Cw0YLQvtGALiDQrdCy0LDQutGD0LDRhtC40Y8g0YfQtdGA0LXQtyAzMCDRgdC10LrRg9C90LQuIl19LHsiaWQiOiJzY3JpcHRfd2FpdCIsInBhcmFtcyI6WyIxNSJdfSx7ImlkIjoiY2hhdF9mYWN0aW9uIiwicGFyYW1zIjpbItCt0LLQsNC60YPQsNGG0LjRjyDRh9C10YDQtdC3IDE1INGB0LXQutGD0L3QtC4iXX0seyJpZCI6InNjcmlwdF93YWl0IiwicGFyYW1zIjpbIjUiXX0seyJpZCI6ImNoYXRfZmFjdGlvbiIsInBhcmFtcyI6WyLQrdCy0LDQutGD0LDRhtC40Y8g0YfQtdGA0LXQtyAxMCDRgdC10LrRg9C90LQuIl19LHsiaWQiOiJzY3JpcHRfd2FpdCIsInBhcmFtcyI6WyI1Il19LHsiaWQiOiJjaGF0X2ZhY3Rpb24iLCJwYXJhbXMiOlsi0K3QstCw0LrRg9Cw0YbQuNGPINGH0LXRgNC10LcgNSDRgdC10LrRg9C90LQuIl19LHsiaWQiOiJzY3JpcHRfd2FpdCIsInBhcmFtcyI6WyI1Il19LHsiaWQiOiJjaGF0X2ZhY3Rpb24iLCJwYXJhbXMiOlsi0K3QstCw0LrRg9Cw0YbQuNGPINC90LDRh9Cw0YLQsC4iXX0seyJpZCI6InNjcmlwdF93YWl0IiwicGFyYW1zIjpbIjUiXX0seyJpZCI6ImNoYXRfZmFjdGlvbiIsInBhcmFtcyI6WyLQrdCy0LDQutGD0LDRhtC40Y8g0LfQsNC60L7QvdGH0LXQvdCwLiJdfV1d</pre>
+  </div>
+  <div class="card">
+    <h4>ПРИСМОТРЕЛСЯ К ЖЕТОНУ</h4>
+    <p>/me присмотрелся к идентификационным знакам @target + /do Что написано на идентификационных знаках @target? для того что бы макрос сработал нужно навестись на Игрока (что бы Вы видели кнопку G), если Игрок игнорирует Вас в /do то можете обратиться в репорт</p>
+    <pre class="code-block">WyLQn9GA0LjRgdC80L7RgtGA0LXQu9GB0Y8g0Log0LHQtdC50LTQttC40LrRgyIsW3siaWQiOiJjaGF0X3JwX21lIiwicGFyYW1zIjpbItC/0YDQuNGB0LzQvtGC0YDQtdC70YHRjyDQuiDQuNC00LXQvdGC0LjRhNC40LrQsNGG0LjQvtC90L3Ri9C8INC30L3QsNC60LDQvCBAdGFyZ2V0Il19LHsiaWQiOiJjaGF0X3JwX2RvIiwicGFyYW1zIjpbItCn0YLQviDQvdCw0L/QuNGB0LDQvdC+INC90LAg0LjQtNC10L3RgtC40YTQuNC60LDRhtC40L7QvdC90YvRhSDQt9C90LDQutCw0YUgQHRhcmdldD8iXX1dXQ==</pre>
+  </div>
+  <div class="card">
+    <h4>WANTED</h4>
+    <p>Когда вы просите документы у игрока с табличкой WANTED, вы это делаете на основании того что якобы видели похожего человека в розыске. Так вот, этот макрос отыгрывает то как вы достаете планшет, и ознакомились с базой данных разыскиваемых. Тогда ваши требования не являются MG.</p>
+    <pre class="code-block">WyLQn9C70LDQvdGI0LXRgiIsW3siaWQiOiJjaGF0X3JwX21lIiwicGFyYW1zIjpbItC00L7RgdGC0LDQuyDQv9C70LDQvdGI0LXRgiDQuCDQt9Cw0YjQtdC7INCyINGA0LDQt9C00LXQuyDRgSDQsNC60YLRg9Cw0LvRjNC90YvQvNC4INGB0LLQtdC00LXQvdC40Y/QvNC4INC+INGA0L7Qt9GL0YHQutC1Il19LHsiaWQiOiJjaGF0X3JwX21lIiwicGFyYW1zIjpbItC+0LfQvdCw0LrQvtC80LjQu9GB0Y8g0YEg0LjQvNC10Y7RidC40LzQuNGB0Y8g0YHQstC10LTQtdC90LjRj9C80Lgg0L4g0LPRgNCw0LbQtNCw0L3QsNGFLCDQvdCw0YXQvtC00Y/RidC40YXRgdGPINCyINGA0L7Qt9GL0YHQutC1Il19LHsiaWQiOiJjaGF0X3JwX2RvIiwicGFyYW1zIjpbIkBtZSDQvtC30L3QsNC60L7QvNC40LvRgdGPINGBINCw0LrRgtGD0LDQu9GM0L3Ri9C80Lgg0YHQstC10LTQtdC90LjRj9C80LguIl19XV0=</pre>
+  </div>
+  <div class="card">
+    <h4>EMS ПРОВЕСТИ ОСМОТР</h4>
+    <p>(действие) Предложить таблетку</p>
+    <pre class="code-block">WyLQktGL0LfQvtCyINCw0LTQstC60LDRgtCwIixbeyJpZCI6ImNoYXRfZmFjdGlvbiIsInBhcmFtcyI6WyLQl9Cw0L/RgNCw0YjQuNCy0LDRjiDQsNC00LLQvtC60LDRgtCwINC/0L4g0LDQtNGA0LXRgdGDIEB6b25lIl19LHsiaWQiOiJjaGF0X2RlZiIsInBhcmFtcyI6WyLQkN C00LLQvtC60LDRgiDQsdGL0Lsg0LLRi9C30LLQsNC9INCyIEB0aW1lIl19XV0=</pre>
+  </div>
+  <div class="card">
+    <h4>EMS РЕАНИМИРОВАТЬ ИГРОКА</h4>
+    <p>(действие) реанимация + /do Медицинская сумка висит на плече. + /me проверил(а) пульс пострадавшего + /do Пульс в норме. + /me достал(а) из мед. сумки нашатырный спирт и ватку + /me провел(а) около носа пострадавшего + /do Пациент очнулся.</p>
+    <pre class="code-block">WyLQktGL0LfQvtCyINCw0LTQstC60LDRgtCwIixbeyJpZCI6ImNoYXRfZmFjdGlvbiIsInBhcmFtcyI6WyLQl9Cw0L/RgNCw0YjQuNCy0LDRjiDQsNC00LLQvtC60LDRgtCwINC/0L4g0LDQtNGA0LXRgdGDIEB6b25lIl19LHsiaWQiOiJjaGF0X2RlZiIsInBhcmFtcyI6WyLQkN C00LLQvtC60LDRgiDQsdGL0Lsg0LLRi9C30LLQsNC9INCyIEB0aW1lIl19XV0=</pre>
+  </div>
+  <div class="card">
+    <h4>EMS ТЕСТ НА НАРКО</h4>
+    <p>/do На плече висит мед. сумка. + /me достал(а) из мед. сумки ватную палочку + /me засунул(а) ватную палочку в рот пациента + /me провёл(а) палочкой внутри полости рта пациента + /me достал(а) из мед. сумки баночку с раствором + /me положил(а) в баночку с раствором ватную палочку + /do Раствор изменился в цвете. + (действие) провести тест на использование веществ</p>
+    <pre class="code-block">WyLQktGL0LfQvtCyINCw0LTQstC60LDRgtCwIixbeyJpZCI6ImNoYXRfZmFjdGlvbiIsInBhcmFtcyI6WyLQl9Cw0L/RgNCw0YjQuNCy0LDRjiDQsNC00LLQvtC60LDRgtCwINC/0L4g0LDQtNGA0LXRgdGDIEB6b25lIl19LHsiaWQiOiJjaGF0X2RlZiIsInBhcmFtcyI6WyLQkN C00LLQvtC60LDRgiDQsdGL0Lsg0LLRi9C30LLQsNC9INCyIEB0aW1lIl19XV0=</pre>
+  </div>
+  <div class="card">
+    <h4>EMS УКОЛ ОТ НАРКО</h4>
+    <p>/do На плече висит сумка с медикаментами. + /me достал(а) из мед.сумки шприц и ампулу с нужным лекарством + /me надломив ампулу заполнил(а) шприц лекарством + /me второй рукой достал(а) из сумки одноразовую спиртовую салфетку + /me протянув руку вперед, взял(а) человека напротив за руку + /me взял(а) жгут и наложил(а) его на руку выше локтя + /me обработал(а) место укола спиртовой салфеткой + /me взяв в руки иглу, аккуратно ввел(а) ее в вену пациенту + /me ослабив жгут на руке пациента, начал(а) медленно надавливать на поршень + /do Препарат вводиться через вену пациента. + (действие) предложить лечение зависимости + /do Препарат введeн. + /me вынув иглу из вены пациента, приложил(а) к месту прокола спиртовую салфетку закрепив ее бинтом + /me закрыл(а) шприц и положил(а) в отдел для отходов в сумку на плече</p>
+    <pre class="code-block">WyLQndCw0YjQuNCy0LrQsCIsW3siaWQiOiJjaGF0X3JwX3RvZG8iLCJwYXJhbXMiOlsi0KHQvtGC0YDRg9C00L3QuNC6IFNhbiBBbmRyZWFzIE5hdGlvbmFsIEd1YXJkLCBSYXlzIE1vcmdhbiAq0YPQutCw0LfQsNCyINC90LAg0L3QsNGI0LjQstC60YM6IFtTQU5HIHwgR2VuZXJhbCB8IOKEljg5ODI3IHwgUi5NXSJdfV1d</pre>
+  </div>
+</div>
+
+<h2>IC-обозначение времени</h2>
+<div class="grid">
+<div class="card"><h4>🚔 КПЗ</h4><p><b>40 суток = 40 минут</b><br/><small>ПК 24</small></p></div>
+<div class="card"><h4>🏢 ФТ / СИЗО</h4><p><b>УК: 1 год = 5 минут</b></p></div>
+</div>
+</section>
+<footer>
+    Государственная памятка Blaine | by Kazlobek Notorious &amp; Notorious FAMQ<br/>
+    Срез 21.10.2026 · Редакция актов в заголовке: 23.10.2026<br/>
+    Санкции и условия — «Полезные материалы». Учтены OOC-правила Blaine; применяются вместе с IC-основаниями.
+  </footer>
+</div>
+
+<!-- Модальное окно -->
+<div class="modal-overlay" id="articleModal">
+<div class="modal-content">
+<span class="modal-close" id="modalClose">×</span>
+<div class="modal-title" id="modalTitle">Статья</div>
+<div class="modal-body" id="modalBody">
+</div>
+</div>
+</div>
+
+<script>
+  // ==========================================
+  // БАЗА ДАННЫХ ДЛЯ ПКМ (ПОЛНЫЕ ЧАСТИ СТАТЕЙ)
+  // ==========================================
+  const lawData = {
+    // === УК (из экселя) ===
+    "6.1": [ { title: "Часть 1", text: "Убийство, то есть умышленное причинение смерти другому человеку ((нокаут и добив)) — Срок: 30-50 мин" }, { title: "Часть 2", text: "Убийство + отягчающие — Срок: 45-60 мин" } ],
+    "6.2": [{ title: "Основной состав", text: "Причинение смерти по неосторожности ((нокаут и добив)) — Срок: 20 мин" }],
+    "6.3": [{ title: "Основной состав", text: "Умышленное причинение тяжкого вреда здоровью ((нокаут)) — Срок: 20-40 мин" }],
+    "6.4": [ { title: "Часть 1", text: "Умышленное причинение тяжкого вреда здоровью, при превышении обороны ((нокаут)) — Штраф: 50к$; Срок: 15 мин" }, { title: "Часть 2", text: "Умышленное причинение тяжкого или средней тяжести вреда здоровью, при задержании — Штраф: 55к$; Срок: 20 мин" } ],
+    "6.5": [{ title: "Основной состав", text: "Причинение тяжкого вреда здоровью по неосторожности ((нокаут)) — Штраф: 45к$; Срок: 20 мин" }],
+    "6.6": [{ title: "Основной состав", text: "Умышленное причинение средней тяжести вреда здоровью — Штраф: 60к$; Срок: 30 мин" }],
+    "6.7": [{ title: "Основной состав", text: "Угроза убийством или причинением тяжкого вреда здоровью — Штраф: 35к$; Срок: 10 мин" }],
+    "7.1": [ { title: "Часть 1", text: "Похищение человека — Срок: 20-35 мин" }, { title: "Часть 2", text: "Похищение человека + отягчающие — Срок: 40 мин" }, { title: "Часть 3", text: "Похищение человека + шантаж — Срок: 30-45 мин" } ],
+    "8.1": [ { title: "Часть 1", text: "Изнасилование — Срок: 15-30 мин" }, { title: "Часть 2", text: "Изнасилование + отягчающие — Срок: 20-50 мин" } ],
+    "8.2": [{ title: "Основной состав", text: "Понуждение к действиям сексуального характера — Штраф: 60к$; Срок: 15-25 мин" }],
+    "10.1": [ { title: "Часть 1", text: "Кража, то есть тайное хищение чужого имущества, стоимостью свыше $5.000 — Штраф: 10к$; Срок: 15-25 мин" }, { title: "Часть 2", text: "Кража, совершенное со стоимостью имущества в свыше $10.000 — Штраф: 20к$; Срок: 25-35 мин" }, { title: "Часть 3", text: "Кража, совершенное со стоимостью имущества в свыше $20.000 — Штраф: 50к$; Срок: 30-50 мин" } ],
+    "10.2": [{ title: "Основной состав", text: "Мошенничество — Штраф: 20к$; Срок: 25-40 мин" }],
+    "10.3": [{ title: "Основной состав", text: "Вымогательство — Срок: 30-40 мин" }],
+    "10.4": [{ title: "Основной состав", text: "Грабеж, то есть открытое хищение чужого имущества — Срок: 15-30 мин" }],
+    "10.5": [{ title: "Основной состав", text: "Неправомерное завладение ТС с целью хищения (угон) — Срок: 15-20 мин" }],
+    "10.6": [{ title: "Основной состав", text: "Разбой — Срок: 30-40 мин" }],
+    "10.7": [
+      { title: "Часть 1", text: "Умышленные уничтожение или повреждение чужого имущества — Штраф: 40к$; Срок: 15-30 мин" },
+      { title: "Часть 2", text: "Уничтожение или повреждение имущества по неосторожности — Штраф: 30к$; Срок: 15 мин" },
+      { title: "Часть 3", text: "Деяния частей 1 и 2, совершенные из хулиганских побуждений — Срок: 30-60 мин" }
+    ],
+    "10.8": [
+      { title: "Часть 1", text: "Умышленные уничтожение или повреждение государственного имущества — Срок: 30 мин" },
+      { title: "Часть 2", text: "Уничтожение или повреждение государственного имущества по неосторожности — Штраф: 50к$; Срок: 15-20 мин" },
+      { title: "Часть 3", text: "Деяния частей 1 и 2, совершенные из хулиганских побуждений — Срок: 30-40 мин" }
+    ],
+    "11.1": [
+      { title: "Часть 1", text: "Предпринимательство без регистрации в виде аренды, превышение 10 лотов или 150к$ — Штраф: 30к-50к$; Срок: 20 мин" },
+      { title: "Часть 2", text: "Предпринимательство без регистрации в виде торговли, превышает 2.000 единиц или 100к$ — Штраф: 30к-50к$; Срок: 30 мин" },
+      { title: "Часть 3", text: "Продажа лекарственных препаратов без разрешения — Штраф: 15к-40к$; Срок: 30 мин" }
+    ],
+    "11.2": [{ title: "Основной состав", text: "Принуждение к совершению сделки или к отказу от ее совершения — Срок: 30 мин" }],
+    "11.3": [{ title: "Основной состав", text: "Уклонение от уплаты налогов — Штраф: долгX2; Срок: 30 мин" }],
+    "11.4": [{ title: "Основной состав", text: "Сокрытие денежных средств/имущества — Штраф: сокрытиеX2; Срок: 30 мин" }],
+    "11.6": [{ title: "Основной состав", text: "Финансовые махинации с государственным финансированием — Срок: 40 мин" }],
+    "11.7": [{ title: "Основной состав", text: "Финансирование экстремистской деятельности — Срок: 45-60 мин" }],
+    "11.8": [{ title: "Основной состав", text: "Контрабанда — Штраф: 25к$; Срок: 30 мин" }],
+    "12.1": [{ title: "Основной состав", text: "Терроризм — Срок: 60 мин" }],
+    "12.2": [{ title: "Основной состав", text: "Публичные призывы к осуществлению террористической деятельности — Срок: 30 мин" }],
+    "12.3": [{ title: "Основной состав", text: "Склонение, вербовка или иное вовлечение лица в совершение террористического акта — Срок: 45 мин" }],
+    "12.4": [{ title: "Основной состав", text: "Несообщение о преступлении — Срок: 20 мин" }],
+    "12.5": [{ title: "Основной состав", text: "Заведомо ложное сообщение об акте терроризма — Срок: 20 мин" }],
+    "12.6": [{ title: "Основной состав", text: "Незаконное посещение/пребывание на особо охраняемых объектах ГОС органов — Штраф: 10к-25к$; Срок: 15-20 мин" }],
+    "12.7": [{ title: "Основной состав", text: "Незаконное проникновение на особо охраняемый объект + незаконное нахождение на нем — Штраф: 20к-30к$; Срок: 30 мин" }],
+    "12.8": [
+      { title: "Часть 1", text: "Незаконное приобретение, передача, сбыт, перевозка в ТС оружия, спец.средств и бпрп. — Штраф: 10к-25к$; Срок: 15-25 мин" },
+      { title: "Часть 2", text: "Незаконное хранение, ношение или использование оружия, спец.средств и боеприпасов — Штраф: 20к-40к$; Срок: 30 мин" }
+    ],
+    "12.8 ч.1": [{ title: "Часть 1 (отдельно)", text: "Незаконный оборот оружия — приобретение/перевозка — Штраф: $10–25 тыс.; Срок: 3–5 лет" }],
+    "12.8 ч.2": [{ title: "Часть 2 (отдельно)", text: "Незаконный оборот оружия — хранение/ношение/использование — Штраф: $20–40 тыс.; Срок: 6 лет" }],
+    "12.8.1": [{ title: "Основной состав", text: "Использование, хранение гражданскими лицами спец. средств государственного образца — Штраф: 50к$; Срок: 40 мин" }],
+    "12.10": [
+      { title: "Часть 1", text: "Организация деятельности общественного или религиозного объединения — Срок: 30-40 мин" },
+      { title: "Часть 2", text: "Склонение, вербовка или иное вовлечение лица в деятельность экстремистской орг — Срок: 40 мин" },
+      { title: "Часть 3", text: "Участие в деятельности общественного или религиозного объединения — Срок: 30 мин" },
+      { title: "Часть 4", text: "Деяния частей 1, 2 и 3, совершенные лицом с использованием своего служебного положения — Срок: 60 мин" }
+    ],
+    "12.11": [
+      { title: "Часть 1", text: "Нарушение установленного порядка организации либо проведения собрания, митинга — Срок: 20 мин" },
+      { title: "Часть 2", text: "Организация либо активное участие в собрании, митинге или публичном мероприятии — Срок: 20 мин" }
+    ],
+    "12.12": [{ title: "Основной состав", text: "Массовые беспорядки — Срок: 15-60 мин" }],
+    "12.13": [
+      { title: "Часть 1", text: "Действия, направленные на возбуждение ненависти либо вражды (экстремизм) — Срок: 30-40 мин" },
+      { title: "Часть 2", text: "Экстремизм + отягчающие — Срок: 45-60 мин" }
+    ],
+    "12.14": [{ title: "Основной состав", text: "Взрывчатые вещества/устройства: незаконные приобретение, передача, сбыт, хранение и т.д. — Срок: 35-40 мин" }],
+    "12.15": [{ title: "Основной состав", text: "Хищение огнестрельного оружия — Срок: 30-40 мин" }],
+    "12.16": [{ title: "Основной состав", text: "Хищение государственного имущества, совершенное сотрудниками ГОС — Срок: 60 мин" }],
+    "12.17": [{ title: "Основной состав", text: "Создание вооруженного формирования — Срок: 50-60 мин" }],
+    "12.18": [
+      { title: "Часть 1", text: "Создание преступного сообщества в целях совершения преступления — Срок: 50-60 мин" },
+      { title: "Часть 2", text: "Участие в собрании организаторов, руководителей (лидеров)/иных преступных сообществ" },
+      { title: "Часть 3", text: "Участие в преступном сообществе (преступной организации)" },
+      { title: "Часть 4", text: "Части 1, 2 и 3, совершенные лицом с использованием своего служебного положения" },
+      { title: "Часть 5", text: "Части 1 и 2, совершенные лицом, занимающим высшее положение в преступной иерархии" }
+    ],
+    "13.1": [{ title: "Основной состав", text: "Наркотики — свыше 5 грамм легких ((косяк)), до 10 грамм тяжелых ((spank)) — Срок: 15 мин" }],
+    "13.1+": [{ title: "Квалификация", text: "Наркотики: квалификация по ст. 13.1–13.3, виду, количеству и цели — Штраф: 3–10 лет; см. указатель" }],
+    "13.2": [{ title: "Основной состав", text: "Наркотики — от 10 грамм и выше — Срок: 25-40 мин" }],
+    "13.3": [{ title: "Основной состав", text: "Наркотики — 25 грамм и выше — Срок: 50 мин" }],
+    "13.4": [{ title: "Основной состав", text: "Организация, а равно вовлечение в занятие проституцией ((сутенерка)) — Срок: 15-30 мин" }],
+    "13.5": [
+      { title: "Часть 1", text: "Жестокое обращение с животным в целях причинения ему боли и (или) страданий — Штраф: 25к-45к$; Срок: 20 мин" },
+      { title: "Часть 2", text: "Жестокое обращение с животным + отягчающие — Штраф: 50к$; Срок: 30 мин" }
+    ],
+    "14.1": [{ title: "Основной состав", text: "Насильственный захват власти или насильственное удержание власти — Срок: 60 мин" }],
+    "14.2": [{ title: "Основной состав", text: "Сепаратизм — Срок: 50-60 мин" }],
+    "14.3": [{ title: "Основной состав", text: "Разглашение государственной тайны — Срок: 45 мин" }],
+    "14.4": [{ title: "Основной состав", text: "Незаконное получение сведений, составляющих государственную тайну — Срок: 45-50 мин" }],
+    "15.1": [
+      { title: "Часть 1", text: "Превышение должностных полномочий — Штраф: 30к-45к$; Срок: 20-30 мин" },
+      { title: "Часть 2", text: "Превышение должностных полномочий + отягчающие — Срок: 30-40 мин" }
+    ],
+    "15.1.1": [
+      { title: "Часть 1", text: "Злоупотребление должностными полномочиями — Штраф: 40к-50к$; Срок: 30 мин" },
+      { title: "Часть 2", text: "Должностные для вмешательства или воспрепятствования процессу задержания/аресту — Штраф: 60к$; Срок: 30 мин" },
+      { title: "Часть 3", text: "Части 1 и 2, если они совершены ГОС, уполномоченным расследовать ГОС преступления — Срок: 40 мин" },
+      { title: "Часть 4", text: "Части 1, 2 и 3, повлекшие причинение вреда здоровью или смерть человека — Срок: 40-60 мин" }
+    ],
+    "15.2": [{ title: "Основной состав", text: "Присвоение полномочий должностного лица — Срок: 30-40 мин" }],
+    "15.3": [
+      { title: "Часть 1", text: "Неисполнение сотрудником ГОС указа, приказа, распоряжения или иного НПА от рук-ва — Штраф: 15к-30к$; Срок: 30 мин" },
+      { title: "Часть 2", text: "Неисполнение сотрудником ГОС указа, приказа, распоряжения или иного НПА от Глав ДП — Штраф: 15к-30к$; Срок: 40 мин" },
+      { title: "Часть 3", text: "Неисполнение сотрудником ГОС указа, приказа, распоряжения или иного НПА от Губера — Срок: 50-60 мин" },
+      { title: "Часть 4", text: "Неисполнение сотрудником ГОС указа, приказа, распоряжения или иного НПА от Сената — Срок: 50-60 мин" }
+    ],
+    "15.4": [{ title: "Основной состав", text: "Получение должностным лицом взятки — Штраф: взяткаХ5; Срок: 40-50 мин" }],
+    "15.5": [{ title: "Основной состав", text: "Дача взятки должностному лицу лично или через посредника — Штраф: взяткаХ5; Срок: 25-40 мин" }],
+    "15.5.1": [{ title: "Основной состав", text: "Посредничество во взяточничестве — Штраф: взяткаХ5; Срок: 25-40 мин" }],
+    "15.5.2": [{ title: "Основной состав", text: "Мелкое взяточничество — Штраф: 50к$; Срок: 15-30 мин" }],
+    "15.6": [
+      { title: "Часть 1", text: "Халатность — Штраф: 35к-50к$; Срок: 15-25 мин" },
+      { title: "Часть 2", text: "Халатность, повлекшая причинение тяжкого вреда или смерть человека по неосторожности — Срок: 25-30 мин" },
+      { title: "Часть 3", text: "Халатность, повлекшая по неосторожности смерть двух или более лиц — Срок: 45 мин" }
+    ],
+    "15.7": [{ title: "Основной состав", text: "Деструктивное поведение — Штраф: 20к-40к$; Срок: 15 мин" }],
+    "16.1": [
+      { title: "Часть 1", text: "Вмешательство в какой бы то ни было форме в деятельность суда — Срок: 40 мин" },
+      { title: "Часть 2", text: "Вмешательство в деятельность прокурора или лица, производящего следствие — Срок: 50 мин" },
+      { title: "Часть 3", text: "Части 1 и 2, совершенные лицом с использованием своего служебного положения — Срок: 60 мин" },
+      { title: "Часть 4", text: "Неуважение к суду — Штраф: 50к$; Срок: 20-30 мин" }
+    ],
+    "16.2": [{ title: "Основной состав", text: "Угроза, а равно посягательство на жизнь судьи — Срок: 60 мин" }],
+    "16.3": [{ title: "Основной состав", text: "Привлечение заведомо невиновного к уголовной или административной ответственности — Срок: 40 мин" }],
+    "16.4": [{ title: "Основной состав", text: "Заведомо незаконное задержание, заключение под стражу или содержание под стражей — Срок: 15-25 мин" }],
+    "16.5": [{ title: "Основной состав", text: "Фальсификация доказательств по гражданскому, административному делу — Срок: 25 мин" }],
+    "16.5-16.10": [{ title: "Сводная группа", text: "Фальсификация доказательств, подкуп свидетелей, неисполнение приговора и др. — Штраф: До 5 лет" }],
+    "16.6": [{ title: "Основной состав", text: "Фальсификация доказательств по уголовному делу — Срок: 40 мин" }],
+    "16.7": [{ title: "Основной состав", text: "Вынесение судьей (судьями) заведомо неправомерного приговора, решения или иного судебного акта — Срок: 40 мин" }],
+    "16.8": [{ title: "Основной состав", text: "Заведомо ложные показания в суде — Срок: 30 мин" }],
+    "16.9": [{ title: "Основной состав", text: "Подкуп свидетеля, потерпевшего в целях дачи ими ложных показаний — Срок: 30 мин" }],
+    "16.10": [
+      { title: "Часть 1", text: "Неисполнение вступивших в законную силу приговора суда, решения суда/иного суд. акта — Срок: 30-40 мин" },
+      { title: "Часть 2", text: "Неисполнение ГОС вступивших в законную силу приговора суда/акта прокуратуры и т.д. — Штраф: 50к$; Срок: 45-50 мин" },
+      { title: "Часть 3", text: "Неуплата уголовного, административного или судебного штрафа — Срок: 25 мин" }
+    ],
+    "16.11": [{ title: "Основной состав", text: "Сокрытие улик или уничтожение улик — Срок: 30 мин" }],
+    "16.12": [{ title: "Основной состав", text: "Уклонение от расследования, задержания и суда — Срок: 40 мин" }],
+    "16.13": [{ title: "Основной состав", text: "Дача заведомо ложных показаний и сведений адвокату или же прокурору в ходе допроса/дела — Срок: 30-40 мин" }],
+    "16.14": [{ title: "Основной состав", text: "Дача заведомо ложных показаний должностному лицу в ходе проведения допроса — Срок: 30-40 мин" }],
+    "16.15": [{ title: "Основной состав", text: "Отказ свидетеля или потерпевшего от дачи показаний — Срок: 20 мин" }],
+    "16.16": [
+      { title: "Часть 1", text: "Побег из места лишения свободы, из-под ареста или из-под стражи — Срок: 30-40 мин" },
+      { title: "Часть 2", text: "Побег + отягчающие — Срок: 50-60 мин" }
+    ],
+    "16.16 ч.1": [{ title: "Часть 1 (отдельно)", text: "Побег из-под стражи (ч. 1) — Штраф: 6–8 лет" }],
+    "16.16 ч.2": [{ title: "Часть 2 (отдельно)", text: "Побег из-под стражи (ч. 2) — Штраф: 10–12 лет" }],
+    "17.1": [{ title: "Основной состав", text: "Посягательство на жизнь ГОСНИКА — Срок: 40-60 мин" }],
+    "17.2": [
+      { title: "Часть 1", text: "Применение насилия, не опасного для жизни или здоровья, в отношении ГОСНИКА — Штраф: 50к$; Срок: 30 мин" },
+      { title: "Часть 2", text: "Применение насилия, опасного для жизни или здоровья, в отношении ГОСНИКОВ — Срок: 30-40 мин" }
+    ],
+    "17.2 ч.1": [{ title: "Часть 1 (отдельно)", text: "Угроза либо неопасное насилие в отношении сотрудника правоохранительных органов и иных лиц по УК 17.2 ч. 1 — Штраф: 6 лет или $50 тыс." }],
+    "17.2 ч.2": [{ title: "Часть 2 (отдельно)", text: "Опасное для жизни или здоровья насилие в отношении лиц, указанных в УК 17.2 ч. 1 — Штраф: 6–8 лет" }],
+    "17.3": [{ title: "Основной состав", text: "Подделка удостоверения или иного официального документа — Срок: 30 мин" }],
+    "17.4": [{ title: "Основной состав", text: "Совершение трех административных нарушений КоАП — Штраф: 35к-50к$; Срок: 20 мин" }],
+    "17.5": [{ title: "Основной состав", text: "Самоуправство — Штраф: 20к-50к$; Срок: 30 мин" }],
+    "17.6": [{ title: "Основной состав", text: "Укрывательство правонарушителя — Срок: 20 мин" }],
+    "17.7": [{ title: "Основной состав", text: "Отказ от уплаты уголовного штрафа — Срок: 30-40 мин" }],
+    "18.1": [{ title: "Основной состав", text: "Неисполнение подчиненным приказа начальника — Штраф: 15к-25к$; Срок: 20 мин" }],
+    "18.2": [{ title: "Основной состав", text: "Самовольное оставление части или места службы — Штраф: 10к-25к$; Срок: 20 мин" }],
+    "18.3": [{ title: "Основной состав", text: "Дезертирство — Штраф: 35к$; Срок: 30 мин" }],
+    "18.4": [{ title: "Основной состав", text: "Нарушение правил несения боевого дежурства (боевой службы) — Штраф: 50к$; Срок: 40 мин" }],
+    "18.5": [{ title: "Основной состав", text: "Умышленные уничтожение/повреждение оружия, боеприпасов или предметов военной техники — Срок: 40 мин" }],
+    "18.6": [{ title: "Основной состав", text: "Уничтожение/повреждение по неосторожности оружия и т.п., повлекшие тяжкие последствия — Штраф: 30к-50к$; Срок: 30 мин" }],
+    "18.7": [{ title: "Основной состав", text: "Нарушение правил вождения или эксплуатации боевой или транспортной машины — Срок: 30-40 мин" }],
+    "19.1": [{ title: "Основной состав", text: "Эксплуатация воздушного ТС, повлекшая за собой причинение тяжких телесных повреждений — Срок: 20 мин" }],
+    "19.2": [{ title: "Основной состав", text: "Эксплуатация воздушного ТС, повлекшая за собой по неосторожности смерть человека — Срок: 40 мин" }],
+    "19.3": [{ title: "Основной состав", text: "Эксплуатация воздушного ТС, повлекшая смерть двух и более лиц — Срок: 45-60 мин" }],
+    "19.4": [{ title: "Основной состав", text: "Угон воздушного транспорта, в том числе завладение им без разрешения руководства — Штраф: 30к-40к$; Срок: 40 мин" }],
+
+    // === КоАП (новые и восстановленные) ===
+    "21": [
+      { title: "Часть 1", text: "Мелкое хулиганство — Штраф: 3к-10к$; Срок: 15 мин" },
+      { title: "Часть 2", text: "Повторное совершение мелкого хулиганства — Штраф: 10к-20к$; Срок: 30 мин" }
+    ],
+    "21 ч.1": [{ title: "Часть 1 (отдельно)", text: "Нарушение общественного порядка — Штраф: $3–10 тыс.; Срок: 15 суток" }],
+    "22": [{ title: "Основной состав", text: "Распитие в общественных местах алкогольных напитков — Штраф: 2к-10к$; Срок: 15 мин" }],
+    "23": [
+      { title: "Часть 1", text: "Нахождение в общественном месте в неприемлемом виде — Штраф: 5к-12к$; Срок: 10 мин" },
+      { title: "Часть 2", text: "Нахождение в общественном месте в маске/мотошлеме — Штраф: 10к-20к$; Срок: 25 мин" }
+    ],
+    "23 ч.1": [{ title: "Часть 1 (отдельно)", text: "Оголение в общественном месте — Штраф: Предупреждение / $5–12 тыс.; Срок: 10 суток" }],
+    "23 ч.2": [{ title: "Часть 2 (отдельно)", text: "Неповиновение требованию снять предмет, препятствующий установлению личности — Штраф: До 25 суток / $10–20 тыс." }],
+    "24": [{ title: "Основной состав", text: "Обнажение оружия в общественных местах — Штраф: 5к-15к$; Срок: 20 мин" }],
+    "25": [{ title: "Основной состав", text: "Незаконное проникновение на охраняемый объект — Штраф: 5к-20к$; Срок: 30 мин" }],
+    "26": [
+      { title: "Часть 1", text: "Нарушение установленного регламента посещения охраняемого объекта — Штраф: 5к-15к$" },
+      { title: "Часть 2", text: "Повторное нарушение части 1 ст. 26 — Срок: 15-25 мин" }
+    ],
+    "27": [
+      { title: "Часть 1", text: "Нарушение неприкосновенности жилища и частных владений — Штраф: 20к-35к$; Срок: 30-40 мин" },
+      { title: "Часть 2", text: "Незаконное проникновение на частную территорию — Штраф: 10к-25к$; Срок: 10-25 мин" }
+    ],
+    "27 ч.1": [{ title: "Часть 1 (отдельно)", text: "Доступ в жилище против воли владельца — Штраф: $20–35 тыс.; Срок: 30–40 суток" }],
+    "28": [{ title: "Основной состав", text: "Безрассудное вождение, повлекшее за собой причинение вреда здоровью — Штраф: 20к$; Срок: 40 мин" }],
+    "29": [{ title: "Основной состав", text: "Дискриминация — Штраф: 10к-25к$" }],
+    "30": [{ title: "Основной состав", text: "Нарушение государственных нормативных требований охраны труда — Штраф: 20к-150к$" }],
+    "31": [{ title: "Основной состав", text: "Курение в общественных местах — Штраф: 5к-15к$" }],
+    "32": [{ title: "Основной состав", text: "Порча чужого имущества — Штраф: 5к-15к$; Срок: 40 мин" }],
+    "33": [{ title: "Основной состав", text: "Воспрепятствование оказанию медицинской помощи — Срок: 20-35 мин" }],
+    "34": [{ title: "Основной состав", text: "Неоказание медицинской помощи — Штраф: 40к$; Срок: 20-35 мин" }],
+    "35": [{ title: "Основной состав", text: "Нарушение работодателем права работника на обеденный перерыв или отпуск — Штраф: 25к-75к$" }],
+    "36": [{ title: "Основной состав", text: "Угон транспортного средства без цели хищения — Штраф: 15к-30к$; Срок: 20-35 мин" }],
+    "37": [{ title: "Основной состав", text: "Нарушение неприкосновенности частной жизни — Штраф: 20к-45к$; Срок: 25-40 мин" }],
+    "38": [{ title: "Основной состав", text: "Воспрепятствование законной профессиональной деятельности журналиста — Штраф: 25к-50к$; Срок: 30-40 мин" }],
+    "38-40": [{ title: "Сводная группа", text: "Валютные и налоговые нарушения — Штраф: $20–50 тыс.; Срок: до 40 суток" }],
+    "39": [{ title: "Основной состав", text: "Осуществление торговой деятельности вне специально отведенных для этого мест — Штраф: 10к-20к$; Срок: 10-20 мин" }],
+    "40": [{ title: "Основной состав", text: "Нарушение порядка рассмотрения обращений граждан — Штраф: 20к-35к$; Срок: 20-30 мин" }],
+    "41": [{ title: "Основной состав", text: "Браконьерство — Штраф: 25к-45к$" }],
+    "42": [{ title: "Основной состав", text: "Превышение нормы вылова рыбы, водных биоресурсов или добычи охотничьих ресурсов — Штраф: 12к-35к$" }],
+    "43": [
+      { title: "Часть 1", text: "Несоблюдение требований к содержанию животных — Штраф: 12к-20к$" },
+      { title: "Часть 2", text: "Жестокое обращение с животными, если действия не содержат УГОЛОВКУ — Штраф: 20к-40к$; Срок: 30-40 мин" },
+      { title: "Часть 3", text: "Нарушение ГОС НПА в области обращения с животными — Срок: 40 мин" },
+      { title: "Часть 4", text: "Нарушение ГОС требований о животных ГОС органами — Штраф: 35к-85к$" }
+    ],
+    "44": [{ title: "Основной состав", text: "Незаконные приобретение, хранение, перевозка, изготовление наркотических средств — Срок: 25-40 мин" }],
+    "45": [
+      { title: "Часть 1", text: "Побои — Срок: 30-40 мин" },
+      { title: "Часть 2", text: "Побои, совершенные по неосторожности — Штраф: 25к-40к$" }
+    ],
+    "45 ч.1": [{ title: "Часть 1 (отдельно)", text: "Умышленные нетяжкие повреждения — Штраф: 30–40 суток" }],
+    "46": [{ title: "Основной состав", text: "Ложное сообщение о совершении преступления — Штраф: 40к$" }],
+    "47": [{ title: "Основной состав", text: "Вмешательство в процесс задержания — Штраф: 25к-35к$; Срок: 20 мин" }],
+    "48": [{ title: "Основной состав", text: "Заведомо ложный вызов специализированных служб — Штраф: 5к-10к$" }],
+    "49": [{ title: "Основной состав", text: "Неисполнение распоряжения судьи или судебного пристава — Штраф: 20к-45к$; Срок: 25-40 мин" }],
+    "50": [{ title: "Основной состав", text: "Неуважение к Сенату штата Сан-Андреас — Штраф: 25к-50к$; Срок: 25-40 мин" }],
+    "51": [
+      { title: "Часть 1", text: "Неявка сенатора на заседание Сената штата Сан-Андреас — Штраф: 35к-50к$" },
+      { title: "Часть 2", text: "Неявка всех заявленных Сенаторов на экстренное или пленарное заседание Сената — Штраф: 80к-150к$" }
+    ],
+    "51-52": [{ title: "Сводная группа", text: "Нарушения в Сенате — Штраф: $15–30 тыс.; Срок: до 25 суток" }],
+    "52": [
+      { title: "Часть 1", text: "Воспрепятствование деятельности Сената штата Сан-Андреас — Штраф: 25к-100к$" },
+      { title: "Часть 2", text: "Отказ ГОС о предоставлении Сенату отчетов о результатах своей деятельности — Штраф: 25к-125к$" }
+    ],
+    "53": [{ title: "Основной состав", text: "Оскорбление представителя государственной власти — Штраф: 10к-25к$; Срок: 20 мин" }],
+    "54": [
+      { title: "Часть 1", text: "Провокация лица, состоящего на государственной службе, на дороге — Штраф: 20к-40к$; Срок: 30-40 мин" },
+      { title: "Часть 2", text: "Провокация лица, состоящего на государственной службе — Штраф: 10к-35к$; Срок: 15-35 мин" }
+    ],
+    "54 ч.2": [{ title: "Часть 2 (отдельно)", text: "Воспрепятствование исполнению служебных обязанностей — Штраф: $10–35 тыс.; Срок: 15–35 суток" }],
+    "55": [
+      { title: "Часть 1", text: "Неповиновение законному распоряжению или требованию ГОСНИКА — Штраф: 20к-40к$; Срок: 15-25 мин" },
+      { title: "Часть 2", text: "Неповиновение законному распоряжению прокуратуры — Штраф: 25к-45к$; Срок: 20-30 мин" }
+    ],
+    "55 ч.1": [{ title: "Часть 1 (отдельно)", text: "Невыполнение законного требования — Штраф: $20–40 тыс.; Срок: 15–25 суток" }],
+    "56": [{ title: "Основной состав", text: "Отказ от уплаты административного штрафа — Срок: 30-40 мин" }],
+    "57": [
+      { title: "Часть 1", text: "Нарушение установленного режима комендантского часа (ЧП/ВП) — Штраф: 15к$; Срок: 20 мин" },
+      { title: "Часть 2", text: "Публичные мероприятия в период ЧП/ВП — Штраф: 20к$; Срок: 30 мин" },
+      { title: "Часть 3", text: "Отказ гражданского предъявить документы в период ЧП/ВП — Штраф: 10к$; Срок: 15 мин" },
+      { title: "Часть 4", text: "Нарушение порядка в зоне особого контроля в период ЧП/ВП — Штраф: 15к$; Срок: 15 мин" }
+    ],
+    "58": [
+      { title: "Часть 1", text: "Отказ от государственной проверки — Штраф: 20к-500к$" },
+      { title: "Часть 2", text: "Неудовлетворительное прохождение государственной проверки — Штраф: 500к$" }
+    ],
+    "59": [{ title: "Основной состав", text: "Незаконный отказ в доступе должностному лицу EMS — Штраф: 25к-60к$" }],
+    "60": [
+      { title: "Часть 1", text: "Клевета в отношении ГОСНИКА — Штраф: 15к$; Срок: 20 мин" },
+      { title: "Часть 2", text: "Клевета в отношении гражданского — Штраф: 20к$; Срок: 25 мин" },
+      { title: "Часть 3", text: "Клевета (части 1 и 2) + отягчающие — Штраф: 35к$; Срок: 30-40 мин" }
+    ],
+    "60 ч.1": [{ title: "Часть 1 (отдельно)", text: "Клевета в отношении госслужащего — Штраф: До $15 тыс.; Срок: 20 суток" }],
+    "61": [
+      { title: "Часть 1", text: "Оскорбление — Штраф: 10к-25к$; Срок: 10-30 мин" },
+      { title: "Часть 2", text: "Оскорбление, совершенное должностным лицом — Штраф: 25к-45к$; Срок: 20-30 мин" }
+    ],
+    "61 ч.1": [{ title: "Часть 1 (отдельно)", text: "Оскорбление гражданина — Штраф: $10–25 тыс.; Срок: 10–30 суток" }],
+    "62": [{ title: "Основной состав", text: "Незаконный отказ или уклонение от внесения записей в реестр административных штрафов — Штраф: 20к-30к$; Срок: 10-15 мин" }],
+    "63": [{ title: "Основной состав", text: "Отказ или уклонение от выдачи квитанции об оплате административного штрафа — Штраф: 7к$; Срок: 10-15 мин" }],
+    "64": [
+      { title: "Часть 1", text: "Осуществление малым или средним предприятием предпринимательства без лицензии — Штраф: 35к-50к$; Срок: 10-30 мин" },
+      { title: "Часть 2", text: "Осуществление организацией предпринимательской деятельности без лицензии — Штраф: 50к-65к$; Срок: 30-40 мин" },
+      { title: "Часть 3", text: "Нарушение санитарно-эпидемиологических требований субъектом малого/среднего бизнеса — Штраф: 30к-120к$" },
+      { title: "Часть 4", text: "Нарушение санитарно-эпидемиологических требований организацией — Штраф: 35к-130к$" }
+    ],
+    "64 ч.1": [{ title: "Часть 1 (отдельно)", text: "Нарушение законности малого/среднего бизнеса — Штраф: $35–50 тыс.; Срок: 15–35 суток" }],
+
+    // === Дорожный кодекс ===
+    "1": [{ title: "Основной состав", text: "Водитель должен предъявить ГОСНИКУ документы — Штраф: 2к$; Срок: 10 мин" }],
+    "2": [{ title: "Основной состав", text: "Водитель обязан остановиться по требованию ГОСНИКА — Штраф: 2к$; Срок: 20 мин" }],
+    "3": [{ title: "Основной состав", text: "Водитель обязан проходить мед/нарко освидетельствование по требованию ГОСНИКА — Штраф: 1.5к$; Срок: 20 мин" }],
+    "4": [{ title: "Основной состав", text: "При аварии водитель обязан остановиться и не трогаться с места — Штраф: 5к$" }],
+    "5": [{ title: "Основной состав", text: "При аварии, в которой ранены люди, водитель обязан оказать ПМП и вызвать EMS — Штраф: 20к$; Срок: 40 мин" }],
+    "7": [{ title: "Основной состав", text: "Вождение ТС в состоянии алкогольного опьянения — Штраф: 15к$; Срок: 30 мин" }],
+    "7.1": [{ title: "Основной состав", text: "Вождение ТС в состоянии наркотического опьянения — Штраф: 5к$; Срок: 40 мин" }],
+    "7.2": [{ title: "Основной состав", text: "Водителю запрещено употреблять алко/нарко при аварии, к которой он причастен — Штраф: 5к$; Срок: 40 мин" }],
+    "8": [{ title: "Основной состав", text: "Водителю запрещено передавать управление ТС гражданскому без лицензии/под алко/нарко — Штраф: 2к$; Срок: 40 мин" }],
+    "9": [{ title: "Основной состав", text: "Водителю запрещено пересекать и занимать место в организованных колоннах или кортежах — Штраф: 4к$; Срок: 40 мин" }],
+    "11": [{ title: "Основной состав", text: "Водителю запрещается пользоваться во время движения телефоном — Штраф: 1.5к$" }],
+    "12": [{ title: "Основной состав", text: "Водителю запрещено совершать безрассудное вождение — Штраф: 4к$" }],
+    "12.1": [{ title: "Основной состав", text: "Передвижение на мото-транспортных средствах без мотошлема — Штраф: 1.5к$" }],
+    "13": [{ title: "Основной состав", text: "ГОСНИКИ с спецсигналами могут не следовать правилам ДК при условии безопасности — Штраф: 3к$" }],
+    "13.1": [{ title: "Основной состав", text: "ГОСНИКИ с спецсигналами имеют приоритет при условии безопасности — Штраф: 3к$" }],
+    "14": [{ title: "Основной состав", text: "Необходимо уступить дорогу ТС с включенными спец. сигналами — Штраф: 1.5к$" }],
+    "14.1": [{ title: "Основной состав", text: "Если ТС со спец. сигналами несколько, то приоритет имеет EMS — Штраф: 10к$" }],
+    "15": [{ title: "Основной состав", text: "Необходимо снизить скорость при приближении ТС с включенными спец. сигналами — Штраф: 2к$" }],
+    "16": [{ title: "Основной состав", text: "Маячок желтого цвета служит для предупреждения других водителей — Штраф: 1.5к$" }],
+    "17": [{ title: "Основной состав", text: "Пешеходы обязаны двигаться по тротуару или по обочине — Штраф: 6.5к$" }],
+    "18": [{ title: "Основной состав", text: "Пешеход обязан остановиться и пропустить ТС со спец. сигналами — Штраф: 3.5к$" }],
+    "19": [{ title: "Основной состав", text: "Пешеходы обязаны воздержаться от перехода дороги, если приближается ТС со спец. сигналами — Штраф: 5к$" }],
+    "20": [{ title: "Основной состав", text: "Скейты, ролики и т.п. запрещено передвигать по проезжей части — Штраф: 7.5к$" }],
+    "21": [{ title: "Основной состав", text: "Пешеходы не должны отвлекаться на телефон — Штраф: 2.5к$" }],
+    "22": [{ title: "Основной состав", text: "При выезде на дорогу с прилегающей территории водитель должен уступить дорогу ТС — Штраф: 1.5к$" }],
+    "23": [{ title: "Основной состав", text: "При перестроении водитель должен уступить дорогу ТС, движущимся попутно без изменений — Штраф: 1.5к$" }],
+    "23.1": [{ title: "Основной состав", text: "При маневрировании водитель обязан указать соответствующим сигналом поворота направление — Штраф: 2к$" }],
+    "24": [{ title: "Основной состав", text: "Перед поворотом направо водитель должен заранее занять крайнее правое положение — Штраф: 2к$" }],
+    "25": [{ title: "Основной состав", text: "При развороте/повороте налево вне перекрестка водитель должен пропустить встречные ТС — Штраф: 2к$" }],
+    "26": [{ title: "Основной состав", text: "На регулируемых перекрестках водитель должен уступить дорогу ТС с приоритетом — Штраф: 1.8к$" }],
+    "26.1": [{ title: "Основной состав", text: "На нерегулируемых перекрестках дорогу уступает водитель, к которому ТС приближается справа — Штраф: 1.8к$" }],
+    "27": [{ title: "Основной состав", text: "Разворот запрещается на неотведенных для этого местах — Штраф: 4к$" }],
+    "28": [{ title: "Основной состав", text: "Движение в штате является правосторонним — Штраф: 1.8к$" }],
+    "29": [{ title: "Основной состав", text: "На дорогах с двусторонним движением запрещается двигаться по полосе встречного движения — Штраф: 5к$" }],
+    "30": [{ title: "Основной состав", text: "ТС со скоростью менее 60км/ч должны двигаться по правой полосе, кроме случаев перестроения — Штраф: 1.8к$" }],
+    "31": [{ title: "Основной состав", text: "Запрещается двигаться ТС по обочинам, тротуарам, пешеходным и велодорожкам — Штраф: 5к$" }],
+    "32": [
+      { title: "Пункт а", text: "Скоростной лимит в населенных пунктах – 100 км/ч — Штраф: 1.5к-4.5к$" },
+      { title: "Пункт б", text: "Скоростной лимит в жилых зонах и дворовых территориях – 50 км/ч" },
+      { title: "Пункт в", text: "Скоростной лимит вне населенных пунктов – 130 км/ч" },
+      { title: "Пункт г", text: "Скоростной лимит на автомагистралях – 170 км/ч" }
+    ],
+    "33": [{ title: "Основной состав", text: "ТС, производящим буксировку, разрешается двигаться со скоростью не более 50 км/ч — Штраф: 1.5к$" }],
+    "34": [{ title: "Основной состав", text: "Водителю запрещается создавать помехи другим ТС, двигаясь без надобности с маленькой скоростью — Штраф: 5к$" }],
+    "35": [{ title: "Основной состав", text: "Перед обгоном водитель должен убедиться в безопасности маневра — Штраф: 1.8к$" }],
+    "36": [{ title: "Основной состав", text: "Обгон запрещен при определенных обстоятельствах — Штраф: 1.5к$" }],
+    "37": [{ title: "Основной состав", text: "Водитель должен пропустить автобус, который выезжает с автобусной остановки — Штраф: 1.8к$" }],
+    "38": [{ title: "Основной состав", text: "Остановка и парковка разрешаются на правой стороне дороги, вплотную к бордюру — Штраф: 1.5к$" }],
+    "40": [{ title: "Основной состав", text: "Ставить транспортное средство разрешается в один ряд параллельно краю проезжей части — Штраф: 1.5к$" }],
+    "41": [{ title: "Основной состав", text: "Остановка запрещается в определенных случаях — Штраф: 10к$" }],
+    "42": [{ title: "Основной состав", text: "Остановка запрещена на автомагистралях (хайвеях), кроме случаев чрезвычайной остановки — Штраф: 1.5к$" }],
+    "43": [{ title: "Основной состав", text: "На автомагистралях запрещаются определенные действия — Штраф: 3.5к$" }],
+    "44": [{ title: "Основной состав", text: "В темное время суток/в условиях плохой погоды/в тоннелях ТС должны использовать ближний/дальний свет — Штраф: 2к$" }],
+    "45": [{ title: "Основной состав", text: "В населенных пунктах, где дорога освещена, дальний свет должен быть переключен на ближний — Штраф: 1.5к$" }],
+    "46": [{ title: "Основной состав", text: "Звуковой сигнал разрешается подавать для предупреждения других водителей о намерении обгона — Штраф: 1.5к$" }],
+    "47": [{ title: "Основной состав", text: "Пересекать желтую двойную сплошную линию для совершения обгона запрещено — Штраф: 3.5к$" }],
+    "47/48": [{ title: "Сводная группа", text: "Пересечение жёлтых линий — Штраф: См. ДК 47–48" }],
+    "48": [{ title: "Основной состав", text: "Одиночная желтая сплошная линия предупреждает о встречном движении — обгон запрещен — Штраф: 2к$" }],
+    "49": [{ title: "Основной состав", text: "Белая сплошная линия, нанесенная в пределах проезжей части — пересекать её нельзя — Штраф: 1.5к$" }],
+    "50": [{ title: "Основной состав", text: "Стрелки, нанесенные на дорогу для каждой полосы, указывают направления движения по полосам — Штраф: 1.5к$" }],
+    "51": [{ title: "Основной состав", text: "Разметка в виде стрелок налево (направо) под углом — водитель должен пропустить ТС — Штраф: 1.5к$" }],
+    "51-52": [{ title: "Сводная группа", text: "Нарушение разметки направления — Штраф: До $2 тыс." }],
+    "52": [{ title: "Основной состав", text: "Стоп-линия требует остановиться для того, чтобы пропустить движущийся ТС на перекрестке — Штраф: 3к$" }],
+    "53": [{ title: "Основной состав", text: "Требуется останавливаться перед пешеходным переходом, если пешеходы пересекают дорогу — Штраф: 2к$" }],
+    "54": [{ title: "Основной состав", text: "Двойная сплошная линия, переходящая в сплошную линию с пунктирной, разрешает обгон — Штраф: 1.5к$" }],
+    "55": [{ title: "Основной состав", text: "Разметка Bus Lane обозначает специальную полосу для автобусов — Штраф: 1.5к$" }],
+    "56": [{ title: "Основной состав", text: "Разметка No Parking и Keep Clear запрещает постановку любого ТС в пределах разметки — Штраф: 1.5к$" }],
+    "57": [{ title: "Основной состав", text: "Разделительная полоса — Штраф: До $1,5 тыс." }],
+    "59": [{ title: "Основной состав", text: "Сплошная красная линия (красный бордюр) запрещает остановку/стоянку в этом месте — Штраф: 2к$" }],
+    "60": [{ title: "Основной состав", text: "Запрещается использование ТС, не прошедшего процедуру ГОС учета (актуальную регистрацию) — Штраф: 5к$" }],
+    "61": [{ title: "Основной состав", text: "Запрещается использование ТС без ГОС номеров при пробеге большем чем 10 километров — Штраф: 5к-7к$" }],
+    "62": [{ title: "Основной состав", text: "Запрещается использование ТС с номерами, отличающимися от номеров в ПТС на машину — Штраф: 7к$; Срок: 40 мин" }],
+    "63-68": [{ title: "Сводная группа", text: "Условия и порядок эвакуации — Эвакуация запрещена" }],
+    "3.6": [{ title: "Основной состав", text: "Соучастие: ответственность определяется участием и ролью — наказание по ст. 3.6" }]
+  };
+
+  // ==========================================
+  // ЛОГИКА МОДАЛЬНОГО ОКНА И ПОИСКА
+  // ==========================================
+  document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('articleModal');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalBody = document.getElementById('modalBody');
+    const modalClose = document.getElementById('modalClose');
+    const searchInput = document.getElementById('search');
+    const countSpan = document.getElementById('count');
+
+    // Открытие по клику на строку (ПКМ / тап)
+    document.querySelectorAll('tr.clickable').forEach(row => {
+      row.addEventListener('click', function(e) {
+        const article = this.getAttribute('data-article');
+        if (!article) return;
+        
+        // Предотвращаем открытие, если это клик по тексту (выделение)
+        if (window.getSelection().toString().length > 0) return;
+
+        // Заполняем модальное окно
+        modalTitle.textContent = 'Статья ' + article;
+        modalBody.innerHTML = '';
+        
+        if (lawData[article]) {
+          lawData[article].forEach(part => {
+            const partDiv = document.createElement('div');
+            partDiv.className = 'part-item';
+            partDiv.innerHTML = `<span class="part-title">${part.title}</span><span>${part.text}</span>`;
+            modalBody.appendChild(partDiv);
+          });
+        } else {
+          modalBody.innerHTML = `<p style="color:var(--muted);">Для этой статьи пока нет детализированных частей в базе данных. Используйте основную таблицу.</p>`;
+        }
+        
+        modal.classList.add('active');
+      });
+    });
+
+    // Закрытие модального окна
+    function closeModal() {
+      modal.classList.remove('active');
+    }
+    
+    if (modalClose) modalClose.addEventListener('click', closeModal);
+    if (modal) modal.addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeModal();
+    });
+
+    // Поиск
+    if (searchInput) {
+      searchInput.addEventListener('input', function() {
+        const query = this.value.toLowerCase().trim();
+        let totalVisible = 0;
+
+        document.querySelectorAll('section.tab.active tr').forEach(row => {
+          // Пропускаем строки заголовков таблиц
+          if (row.querySelector('th')) return;
+          
+          const text = row.textContent.toLowerCase();
+          if (query === '' || text.includes(query)) {
+            row.classList.remove('hidden');
+            totalVisible++;
+          } else {
+            row.classList.add('hidden');
+          }
+        });
+
+        if (query === '') {
+          countSpan.textContent = '';
+        } else {
+          countSpan.textContent = 'Найдено: ' + totalVisible;
+        }
+      });
+    }
+
+    // Переключение вкладок
+    document.querySelectorAll('nav.tabs button').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const tabId = this.getAttribute('data-tab');
+        
+        // Убираем active со всех кнопок и секций
+        document.querySelectorAll('nav.tabs button').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('section.tab').forEach(s => s.classList.remove('active'));
+        
+        // Добавляем active текущей
+        this.classList.add('active');
+        document.getElementById('tab-' + tabId).classList.add('active');
+        
+        // Сбрасываем поиск при переключении
+        if (searchInput) {
+          searchInput.value = '';
+          countSpan.textContent = '';
+          document.querySelectorAll('section.tab.active tr').forEach(row => {
+            row.classList.remove('hidden');
+          });
+        }
+      });
+    });
+  });
+</script>
+</body>
+</html>
